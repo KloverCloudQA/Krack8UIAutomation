@@ -16,8 +16,7 @@ class Test_001_Login:
     # logger object
     logger = cl.LogGen.customLogger(logging.DEBUG)
 
-    def test_001_PageTitle(self, setup):
-        self.logger.info("*************************** Test_001_Login*************************")
+    def test_PageTitle(self, setup):
         self.logger.info("*********************** Verifying Homepage Title *******************")
 
         self.driver = setup
@@ -37,29 +36,28 @@ class Test_001_Login:
             self.logger.info("*********************** homepage title test is failed *******************")
             assert False
 
-    # def test_002_successful_login(self, setup):
-    #     self.logger.info("*************************** Test_002_Login*************************")
-    #     self.logger.info("*********************** Verifying successfully login *******************")
-    #     self.driver = setup
-    #     self.lp = LoginPage(self.driver)
-    #     self.driver.get(self.baseURL)
-    #     self.driver.maximize_window()
-    #     time.sleep(5)
-    #     self.lp.setUserName(self.username)
-    #     time.sleep(2)
-    #     self.lp.setPassword(self.password)
-    #     time.sleep(2)
-    #     self.lp.clickLogin()
-    #     time.sleep(10)
-    #     act_title = self.driver.title
-    #     print(act_title)
-    #     desired_title = "KloverCloud | Dashboard"
-    #     if act_title == desired_title:
-    #         assert True
-    #         self.driver.close()
-    #         self.logger.info("*********************** homepage title test is passed *******************")
-    #     else:
-    #         self.driver.save_screenshot(".\\Screenshots\\Login\\" + "test_PageTitle.png")
-    #         self.driver.close()
-    #         self.logger.info("*********************** homepage title test is failed *******************")
-    #         assert False
+    def test_successful_login(self, setup):
+        self.logger.info("****************** Verifying successfully sign in  with valid credentials ****************")
+        self.driver = setup
+        self.lp = LoginPage(self.driver)
+        self.driver.get(self.baseURL)
+        self.driver.maximize_window()
+        time.sleep(5)
+        self.lp.setUserName(self.username)
+        time.sleep(2)
+        self.lp.setPassword(self.password)
+        time.sleep(2)
+        self.lp.clickLogin()
+        time.sleep(10)
+        act_title = self.driver.title
+        print(act_title)
+        desired_title = "KloverCloud | Dashboard"
+        if act_title == desired_title:
+            assert True
+            self.driver.close()
+            self.logger.info("*********************** Signed in successfully with valid credentials *******************")
+        else:
+            self.driver.save_screenshot(".\\Screenshots\\Login\\" + "test_PageTitle.png")
+            self.driver.close()
+            self.logger.info("*********************** Sign In failed *******************")
+            assert False
