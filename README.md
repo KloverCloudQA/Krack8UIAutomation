@@ -35,3 +35,14 @@ Krack8UIAutomation
     Reports(Folder)
     |
     Run.bat
+
+To run tests on default browser
+ ---pytest -v -s path
+
+To Run tests on desired browser
+--pytest -s -v path --browser chrome
+--pytest -s -v path --browser firefox
+
+To Run tests on desired browser
+--pytest -s -v -n=3 path --browser chrome
+--pytest -s -v -n=3 path --browser firefox
