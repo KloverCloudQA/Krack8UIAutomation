@@ -43,6 +43,10 @@ To Run tests on desired browser
 --pytest -s -v path --browser chrome
 --pytest -s -v path --browser firefox
 
-To Run tests on desired browser
---pytest -s -v -n=3 path --browser chrome
+To Run tests parallel
+--pytest -s -v -n=3 path --browser chrome  # -n=3 mensa maximum number of browser
 --pytest -s -v -n=3 path --browser firefox
+
+Generate pytest HTML Reports
+--pytest -v -s --html=.\\Reports\\report.html testCases/test_login.py --browser chrome
+--pytest -s -v -n=3 --html=.\\Reports\\report.html testCases/test_login.py --browser chrome
