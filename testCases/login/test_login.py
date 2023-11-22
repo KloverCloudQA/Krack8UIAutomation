@@ -2,7 +2,7 @@ import time
 import logging
 import pytest
 from selenium import webdriver
-from pageObjects.LoginPage import LoginPage
+from pageObjects.pom_LoginPage import LoginPage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 import utilities.customLogger as cl
@@ -55,9 +55,24 @@ class Test_001_Login:
         if act_title == desired_title:
             assert True
             self.driver.close()
-            self.logger.info("*********************** Signed in successfully with valid credentials *******************")
+            self.logger.info(
+                "*********************** Signed in successfully with valid credentials *******************")
         else:
             self.driver.save_screenshot(".\\Screenshots\\Login\\" + "test_PageTitle.png")
             self.driver.close()
             self.logger.info("*********************** Sign In failed *******************")
             assert False
+
+    def test_fun_login(self, setup):
+        self.logger.info("****************** Verifying successfully sign in  with valid credentials ****************")
+        self.driver = setup
+        self.lp = LoginPage(self.driver)
+        self.driver.get(self.baseURL)
+        self.driver.maximize_window()
+        time.sleep(5)
+        self.lp.logIn()
+
+    def test_easy_fun_login(self, setup):
+        self.driver = setup
+        self.lp = LoginPage(self.driver)
+        self.lp.logIn()
