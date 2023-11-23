@@ -64,11 +64,11 @@ class Locator(object):
     Laravel_version_5_6 = "//span[contains(text(),'5.6')]"
 
     # Golang
-    Golang = "//mat-tab-body/div[1]/div[1]/div[6]"
+    Golang_xpath = "//span[contains(text(),'Golang')]"
     Goecho_Version_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[3]/div[1]/div[1]/div[3]"
     Goecho_V_4_1_14 = "//span[contains(text(),'4.1.14')]"
 
-    ApplicationName_box = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
+    Application_Name_bar_xpath = "//input[@id='mat-input-0']"
     TeamBox_A = "//*[@id='mat-select-2']"
     Team_Default = "//mat-option[@id='mat-option-1']"
     # Team_None = "//span[contains(text(),'None')]"
@@ -90,7 +90,16 @@ class Locator(object):
     Monitoring_button = "//span[contains(text(),'Monitoring')]"
     Logs_button = "//span[contains(text(),'Logs')]"
 
-    wait_ToCreateApplication = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[3]/ul[1]/li[1]/div[1]/button[1]/span[1]/mat-icon[1]/*[name()='svg'][1]"
+    wait_ToCreateApplication = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[2]/ul[1]/li[1]/div[1]/button[1]/span[1]/mat-icon[1]/*[1]"
+
+    git_account_bar_xpath = "//mat-select[@id='mat-select-3']"
+    choose_git_account = "//span[contains(text(),'rased')]"
+    container_registry_bar_xpath = "//mat-select[@id='mat-select-4']"
+    choose_container_registry = "//span[contains(text(),'Quay-rased')]"
+    next_button_xpath = "//span[normalize-space()='Next']"
+    choose_namespace_xpath = "//h3[normalize-space()='Dynamic']"
+    save_button_xpath = "//span[contains(text(),'Save')]"
+    create_application_button_xpath = "//button[@type='submit']"
 
     # ******************** For application create validation ***************************
 
@@ -211,7 +220,6 @@ class Locator(object):
     Cache_Settings = "(//span[@class='inline-block py-3 pl-2'][normalize-space()='Settings'])[1]"
     Cache_Delete = "//span[contains(text(),'Delete')]"
     Cache_namebox_D = "//input[@placeholder='Type here...']"
-    # Delete_permanently_button = "//span[contains(text(),'I understand this, Delete permanently')]"
     Cache_Deleted_Success_msg = "/html[1]/body[1]/kc-toastr[1]/div[1]/div[1]/div[2]/p[2]"
 
     Enable_Web_Client_P3_X_Redis = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-cache-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[6]/div[1]/div[1]/mat-checkbox[1]/label[1]/div[1]"
@@ -224,8 +232,9 @@ class Locator(object):
     CPU_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[""1]/mat-sidenav-content[1]/main[1]/kc-vpc-form[1]/div[1]/div[1]/div[1]/div[""1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[""1]"
 
     NamespaceButton = "button[role='menuitem']"
-    Create_button_N = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-vpc-form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/button[1]"
+    Create_button_N = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-vpc-list[1]/div[1]/div[1]/div[1]/div[2]/button[1]/span[1]/span[1]"
     NamespaceName_bar = "input[placeholder='Namespace Name']"
+    namespace_create_button = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-vpc-form[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/button[1]/span[1]/span[1]"
     wait_toCreateNamespace = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-vpc-list/div/div[2]/div[2]/button[1]/span/div"
     check_crateMessage = "/html[1]/body[1]/kc-toastr[1]/div[1]/div[1]/div[2]/p[2]"
 
@@ -247,9 +256,13 @@ class Locator(object):
     Choose_firstTeam = "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/mat-option[2]/span[1]"
 
     # Namespace delete
-    NamespaceButton_sidebar = "//span[normalize-space()='Namespace']"
+
+    namespace_search_bar_xpath = "//input[@placeholder='Search']"
+    NamespaceButton_sidebar = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/kc-sidenav[1]/div[1]/div[2]/kc-sidenav-item[3]/a[1]/span[1]"
     Namespace_settings = "(//span[@class='inline-block py-3 pl-2'][normalize-space()='Settings'])[1]"
-    deleteButton_namespace = "(//button[@class='kc-delete-primary w-32 mat-button mat-button-base ng-trigger ng-trigger-fadeInRight'])[1]"
+    deleteButton_namespace = "//span[contains(text(),'Delete')]"
     input_namespaceName = "/html[1]/body[1]/div[3]/div[2]/div[1]/mat-dialog-container[1]/kc-delete-dialog[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
 
     # Team_None = "//span[@class='mat-option-text'][normalize-space()='None']"
+
+    # ----------------------------------application locators---------------------------
