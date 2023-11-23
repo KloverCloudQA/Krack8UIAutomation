@@ -29,7 +29,12 @@ class Application:
     textbox_username_id = Locator.textbox_Email_xpath
     textbox_password_id = Locator.textbox_Password_xpath
     button_login_xpath = Locator.button_SignI_xpath
+
+    web_framework_name = input("Enter the web framework name: ")
     application_name = input("Enter the application name: ")
+    git_account = input("Enter git account name: ")
+    container_registry = input("Enter container_registry name: ")
+    namespace_name = input("Enter namespace name: ")
 
     def __init__(self, driver):
         self.driver = driver
@@ -87,7 +92,7 @@ class Application:
 
     def choose_framework(self):
         self.logger.info("****************** choose framework ****************")
-        self.driver.find_element(By.XPATH, "//span[contains(text(),'Django')]").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(),'" + self.web_framework_name + "')]").click()
         time.sleep(1)
 
     def input_application_name(self):
@@ -99,14 +104,14 @@ class Application:
         self.logger.info("****************** choose git account ****************")
         self.driver.find_element(By.XPATH, Locator.git_account_bar_xpath).click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "//span[contains(text(),'rased')]").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(),'" + self.git_account + "')]").click()
         time.sleep(2)
 
     def choose_container_registry(self):
         self.logger.info("****************** choose container registry ****************")
         self.driver.find_element(By.XPATH, Locator.container_registry_bar_xpath).click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "//span[contains(text(),'Quay-rased')]").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(),'" + self.container_registry + "')]").click()
         time.sleep(2)
 
     def click_next_button(self):
@@ -121,7 +126,7 @@ class Application:
 
     def Choose_A_Namespace(self):
         self.logger.info("****************** Choose A Namespace for Prod Environment ****************")
-        self.driver.find_element(By.XPATH, "//h3[normalize-space()='Dynamic']").click()
+        self.driver.find_element(By.XPATH, "//h3[normalize-space()='" + self.namespace_name + "']").click()
         time.sleep(2)
 
     def click_on_save_button(self):
