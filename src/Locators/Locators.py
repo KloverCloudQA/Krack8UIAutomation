@@ -134,9 +134,9 @@ class Locator(object):
     deployed_validation = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[3]/ul[1]/li[1]/div[1]/button[1]/span[1]/mat-icon[1]/*[name()='svg'][1]"
 
     # ********************************************** delete Application ********************************
-    application_Settings = "(//span[contains(@class,'inline-block py-4 px-4')][normalize-space()='Settings'])[1]"
-    application_Delete = "//span[contains(text(),'Delete')]"
-    Application_namebox_D = "//input[@placeholder='Type here...']"
+    application_Settings_xpath = "(//span[contains(@class,'inline-block py-4 px-4')][normalize-space()='Settings'])[1]"
+    application_Delete_button_xpath = "//span[contains(text(),'Delete')]"
+    application_name_bar_xpath = "//input[@placeholder='Type here...']"
     Delete_permanently_button = "//span[contains(text(),'I understand this, Delete permanently')]"
     Application_Deleted_Success_msg = "//p[normalize-space()='Application Deleted Successfully']"
     DeleteApp_byIcon = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/kc-application-init[1]/div[1]/button[1]"
@@ -265,4 +265,4 @@ class Locator(object):
 
     # Team_None = "//span[@class='mat-option-text'][normalize-space()='None']"
 
-    # ----------------------------------application locators---------------------------
+
