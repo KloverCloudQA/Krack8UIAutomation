@@ -23,3 +23,4 @@ class Test_Create_Namespace:
         self.ob = Application(self.driver)
         self.ob.logIn()  # login
         self.ob.new_application_creation()  # New Application Creation
+        # self.ob.new_application_creation()  # New Application Creation

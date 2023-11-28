@@ -16,6 +16,7 @@ from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 import utilities.customLogger as cl
 from src.Locators.Locators import Locator
+from pageObjects.pom_LoginPage import LoginPage
 
 
 class Application:
@@ -39,48 +40,12 @@ class Application:
     def __init__(self, driver):
         self.driver = driver
 
-    def go_to_login_page(self):
-        self.logger.info("****************** go to login page ****************")
+    def logIn(self):
         self.driver.get(self.baseURL)
-        self.logger.info("****************** maximize_window ****************")
         self.driver.maximize_window()
         time.sleep(5)
-
-    def setUserName(self, username):
-        self.logger.info("****************** input username ****************")
-        self.driver.find_element(By.XPATH, self.textbox_username_id).clear()
-        self.driver.find_element(By.XPATH, self.textbox_username_id).send_keys(username)
-
-    def setPassword(self, password):
-        self.logger.info("****************** input password ****************")
-        self.driver.find_element(By.XPATH, self.textbox_password_id).clear()
-        self.driver.find_element(By.XPATH, self.textbox_password_id).send_keys(password)
-
-    def clickLogin(self):
-        self.logger.info("******************click on sign in button ****************")
-        self.driver.find_element(By.XPATH, self.button_login_xpath).click()
-
-    def logIn(self):
-        self.go_to_login_page()
-        self.setUserName(self.username)
-        self.setPassword(self.password)
-        time.sleep(2)
-        self.clickLogin()
-        time.sleep(10)
-        self.logger.info("****************** start validation ****************")
-        act_title = self.driver.title
-        print(act_title)
-        desired_title = "KloverCloud | Dashboard"
-        if act_title == desired_title:
-            assert True
-            self.driver.close()
-            self.logger.info(
-                "*********************** Signed in successfully with valid credentials *******************")
-        else:
-            self.driver.save_screenshot(".\\Screenshots\\Login\\" + "test_PageTitle.png")
-            self.driver.close()
-            self.logger.info("*********************** Sign In failed *******************")
-            assert False
+        self.lp = LoginPage(self.driver)
+        self.lp.logIn()
 
     # ------------------------------------------application from---------------------------------------------------
     # def go_to_new_application_creation_form(self):
@@ -89,6 +54,10 @@ class Application:
     #     self.logger.info("****************** maximize_window ****************")
     #     self.driver.maximize_window()
     #     time.sleep(5)
+    def go_to_create_new_application_page(self):
+        self.logger.info("****************** go to application list page ****************")
+        self.driver.get(self.baseURL + "applications/new")
+        time.sleep(5)
 
     def choose_framework(self):
         self.logger.info("****************** choose framework ****************")
@@ -197,7 +166,8 @@ class Application:
         try:
             self.driver.refresh()
             WebDriverWait(self.driver, 15)
-            application = self.driver.find_element(By.XPATH, "//span[normalize-space()='" + self.application_name + "']")
+            application = self.driver.find_element(By.XPATH,
+                                                   "//span[normalize-space()='" + self.application_name + "']")
 
             if not application.is_displayed():
                 print("Namespace '" + self.application_name + "' is not found")
@@ -208,3 +178,16 @@ class Application:
 
         except NoSuchElementException:
             print("The" + self.application_name + "is not found in the list.")
+
+    def new_application_creation(self):
+        self.go_to_create_new_application_page()
+        self.choose_framework()
+        self.input_application_name()
+        self.choose_git_account()
+        self.choose_container_registry()
+        self.click_next_button()
+        self.again_click_next_button()
+        self.Choose_A_Namespace()
+        self.click_on_save_button()
+        self.click_on_create_application_button()
+        self.wait_to_complete_app_creation()
