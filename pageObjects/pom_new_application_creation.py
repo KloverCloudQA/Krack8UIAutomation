@@ -47,13 +47,6 @@ class Application:
         self.lp = LoginPage(self.driver)
         self.lp.logIn()
 
-    # ------------------------------------------application from---------------------------------------------------
-    # def go_to_new_application_creation_form(self):
-    #     self.logger.info("****************** go to new application form ****************")
-    #     self.driver.get("https://console.kc-cp.klovercloud.io/applications/new")
-    #     self.logger.info("****************** maximize_window ****************")
-    #     self.driver.maximize_window()
-    #     time.sleep(5)
     def go_to_create_new_application_page(self):
         self.logger.info("****************** go to application list page ****************")
         self.driver.get(self.baseURL + "applications/new")

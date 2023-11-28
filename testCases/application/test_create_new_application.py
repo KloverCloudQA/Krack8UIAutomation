@@ -8,7 +8,7 @@ from utilities.customLogger import LogGen
 import utilities.customLogger as cl
 
 
-class Test_Create_Namespace:
+class Test_Create_Application:
     baseURL = ReadConfig.getApplicationURL()
     username = ReadConfig.getUsername()
     password = ReadConfig.getPassword()

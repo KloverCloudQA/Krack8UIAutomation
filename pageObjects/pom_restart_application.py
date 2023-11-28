@@ -50,11 +50,6 @@ class Application:
         self.driver.get(self.baseURL + "applications/" + self.application_Id + "/pipeline")
         time.sleep(8)
 
-    # def click_application_from_list(self):
-    #     self.logger.info("****************** click on application ****************")
-    #     self.driver.find_element(By.XPATH, "//span[normalize-space()='" + self.application_name + "']").click()
-    #     time.sleep(5)
-
     def click_on_pipeline_icon(self):
         self.driver.find_element(By.XPATH, Locator.deploy_icon_xpath).click()
         time.sleep(2)
