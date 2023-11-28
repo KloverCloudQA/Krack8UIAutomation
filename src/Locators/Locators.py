@@ -270,6 +270,5 @@ class Locator(object):
     deploy_icon_xpath= "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/*[name()='svg'][1]"
     deploy_button_xpath = "//span[normalize-space()='Deploy']"
     restart_button_xpath = "//span[normalize-space()='Restart']"
-    # okay_button_xpath = "//span[contains(text(),'Okay')]"
-    # okay_button_xpath = "//span[contains(text(),'Okay')]"
+    okay_button_xpath = "//span[contains(text(),'Okay')]"
     wait_to_complete_deploy_xpath = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[2]/ul[1]/li[1]/div[1]/button[1]/span[1]/mat-icon[1]/*[1]"

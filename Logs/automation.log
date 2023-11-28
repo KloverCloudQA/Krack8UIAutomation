@@ -1,14 +1,12 @@
-11/23/2023 01:56:31 PM - Application - INFO: ****************** input username ****************
-11/23/2023 01:56:34 PM - Application - INFO: ****************** input password ****************
-11/23/2023 01:56:36 PM - Application - INFO: ******************click on sign in button ****************
-11/23/2023 01:56:51 PM - Application - INFO: ****************** choose framework ****************
-11/23/2023 01:56:52 PM - Application - INFO: ****************** input application name ****************
-11/23/2023 01:56:53 PM - Application - INFO: ****************** choose git account ****************
-11/23/2023 01:56:57 PM - Application - INFO: ****************** choose container registry ****************
-11/23/2023 01:57:01 PM - Application - INFO: ****************** go to next page ****************
-11/23/2023 01:57:04 PM - Application - INFO: ****************** again go to next page ****************
-11/23/2023 01:57:06 PM - Application - INFO: ****************** Choose A Namespace for Prod Environment ****************
-11/23/2023 01:57:08 PM - Application - INFO: ****************** click on save button ****************
-11/23/2023 01:57:10 PM - Application - INFO: ****************** click on create application button ****************
-11/23/2023 01:57:12 PM - Application - INFO: ****************** wait to complete creation ****************
-11/23/2023 01:59:31 PM - Application - INFO: ****************** The application creation process is complete ****************
+11/28/2023 05:22:42 PM - Application - INFO: ****************** go to application list page ****************
+11/28/2023 05:22:47 PM - Application - INFO: ****************** choose framework ****************
+11/28/2023 05:22:48 PM - Application - INFO: ****************** input application name ****************
+11/28/2023 05:22:49 PM - Application - INFO: ****************** choose git account ****************
+11/28/2023 05:22:53 PM - Application - INFO: ****************** choose container registry ****************
+11/28/2023 05:22:57 PM - Application - INFO: ****************** go to next page ****************
+11/28/2023 05:23:00 PM - Application - INFO: ****************** again go to next page ****************
+11/28/2023 05:23:02 PM - Application - INFO: ****************** Choose A Namespace for Prod Environment ****************
+11/28/2023 05:23:04 PM - Application - INFO: ****************** click on save button ****************
+11/28/2023 05:23:06 PM - Application - INFO: ****************** click on create application button ****************
+11/28/2023 05:23:08 PM - Application - INFO: ****************** wait to complete creation ****************
+11/28/2023 05:36:00 PM - Application - INFO: ****************** The application creation process is complete ****************
