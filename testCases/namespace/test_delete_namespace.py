@@ -19,7 +19,7 @@ class Test_Create_Namespace:
     # logger object
     logger = cl.LogGen.customLogger(logging.DEBUG)
 
-    def test_fixed_namespace_creation(self, setup):
+    def test_namespace_deletion(self, setup):
         self.logger.info("****************** Verifying successfully sign in  with valid credentials ****************")
         self.driver = setup
         self.lp = Namespace(self.driver)

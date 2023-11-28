@@ -54,10 +54,16 @@ class LoginPage:
         self.driver.find_element(By.XPATH, self.button_login_xpath).click()
 
     def logIn(self):
-        self.go_to_login_page()
+        self.driver.get(self.baseURL)
+        self.driver.maximize_window()
+        time.sleep(5)
+        self.logger.info("****************** set username ****************")
         self.setUserName(self.username)
+        time.sleep(2)
+        self.logger.info("****************** set password ****************")
         self.setPassword(self.password)
         time.sleep(2)
+        self.logger.info("****************** click on signin button ****************")
         self.clickLogin()
         time.sleep(10)
         self.logger.info("****************** start validation ****************")
@@ -66,7 +72,6 @@ class LoginPage:
         desired_title = "KloverCloud | Dashboard"
         if act_title == desired_title:
             assert True
-            self.driver.close()
             self.logger.info(
                 "*********************** Signed in successfully with valid credentials *******************")
         else:

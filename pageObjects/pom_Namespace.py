@@ -13,6 +13,7 @@ from utilities.customLogger import LogGen
 import utilities.customLogger as cl
 from src.Locators.Locators import Locator
 from selenium.common.exceptions import NoSuchElementException
+from pageObjects.pom_LoginPage import LoginPage
 
 
 class Namespace:
@@ -37,16 +38,12 @@ class Namespace:
     def __init__(self, driver):
         self.driver = driver
 
-    def setUserName(self, username):
-        self.driver.find_element(By.XPATH, self.textbox_username_id).clear()
-        self.driver.find_element(By.XPATH, self.textbox_username_id).send_keys(username)
-
-    def setPassword(self, password):
-        self.driver.find_element(By.XPATH, self.textbox_password_id).clear()
-        self.driver.find_element(By.XPATH, self.textbox_password_id).send_keys(password)
-
-    def clickLogin(self):
-        self.driver.find_element(By.XPATH, self.button_login_xpath).click()
+    def logIn(self):
+        self.driver.get(self.baseURL)
+        self.driver.maximize_window()
+        time.sleep(5)
+        self.lp = LoginPage(self.driver)
+        self.lp.logIn()
 
     # Click on the "Namespace" link in the sidebar
     def clickNamespace_from_side_bar(self):
@@ -113,7 +110,7 @@ class Namespace:
         try:
             self.driver.refresh()
             WebDriverWait(self.driver, 15)
-            Namespace= self.driver.find_element(By.XPATH, "//h3[normalize-space()='" + self.namespace_name + "']")
+            Namespace = self.driver.find_element(By.XPATH, "//h3[normalize-space()='" + self.namespace_name + "']")
 
             if not Namespace.is_displayed():
                 print("Namespace '" + self.namespace_name + "' is not found")
