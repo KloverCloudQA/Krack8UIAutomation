@@ -267,8 +267,22 @@ class Locator(object):
 
     # *******************************deploy application*************************************
     # deploy_icon_xpath = "//*[local-name()='path' and @fill="#4DBB7B" and contains(@d, "M24.9899 25.3455")]"
-    deploy_icon_xpath= "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/*[name()='svg'][1]"
+    deploy_icon_xpath = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/*[name()='svg'][1]"
     deploy_button_xpath = "//span[normalize-space()='Deploy']"
     restart_button_xpath = "//span[normalize-space()='Restart']"
     okay_button_xpath = "//span[contains(text(),'Okay')]"
     wait_to_complete_deploy_xpath = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[2]/ul[1]/li[1]/div[1]/button[1]/span[1]/mat-icon[1]/*[1]"
+
+    # *******************************user section*************************************
+    create_user_icon_xpath = "//button[@class='ml-4 mat-focus-indicator mat-mini-fab mat-button-base mat-primary']"
+    first_name_bar_xpath = "//input[@formcontrolname='firstName']"
+    last_name_bar_xpath = "//input[@formcontrolname='lastName']"
+    auth_type_listbox_xpath = "//mat-select[@formcontrolname='userRegistrationMethod']"
+    email_input_bar_xpath = "//input[@formcontrolname='username']"
+    create_admin_checkbox_xpath = "(//div[@class='mat-checkbox-inner-container'])[1]"
+    provide_password_checkbox_xpath = "(//div[@class='mat-checkbox-inner-container'])[2]"
+    password_input_bar_xpath = "/html/body/div[3]/div[2]/div/mat-dialog-container/kc-user-form/div/form/mat-dialog-content/mat-form-field[2]/div/div[1]/div[3]/input"
+    password_confirmation_input_bar_xpath = "/html/body/div[3]/div[2]/div/mat-dialog-container/kc-user-form/div/form/mat-dialog-content/mat-form-field[3]/div/div[1]/div[3]/input"
+    team_dropdown_button_xpath = "//div[@class='mat-select-value']/span/span[text()='default']"
+    roles_dropdown_button_xpath = "/html/body/div[3]/div[2]/div/mat-dialog-container/kc-user-form/div/form/mat-dialog-content/mat-form-field[5]/div/div[1]/div[3]/mat-select/div/div[1]/span"
+    create_button_user_xpath = "//span[text()='Create']"
