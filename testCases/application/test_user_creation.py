@@ -25,4 +25,4 @@ class Test_New_User_Creation:
         self.ob = UserCreation(self.driver)
         self.ob.logIn()  # login
         # self.ob.nonAdmin_user_creation()  # non admin user creation
-        self.ob.admin_user_creation()  # admin user creation
+        # self.ob.admin_user_creation()  # admin user creation

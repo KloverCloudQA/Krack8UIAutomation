@@ -1,14 +1,8 @@
-11/29/2023 03:57:19 PM - UserCreation - INFO: ****************** go to users list page ****************
-11/29/2023 03:57:25 PM - UserCreation - INFO: ****************** clicked on create user icon ****************
-11/29/2023 03:57:28 PM - UserCreation - INFO: ****************** firstname inputted ****************
-11/29/2023 03:57:31 PM - UserCreation - INFO: ****************** lastname inputted ****************
-11/29/2023 03:57:36 PM - UserCreation - INFO: ****************** clicked on auth type dropdown button ****************
-11/29/2023 03:57:37 PM - UserCreation - INFO: ****************** auth_type is chosen as : Password ****************
-11/29/2023 03:57:38 PM - UserCreation - INFO: ****************** inputted email is : test321@gmail.com ****************
-11/29/2023 03:57:39 PM - UserCreation - INFO: ****************** chosen provide password check box  ****************
-11/29/2023 03:57:40 PM - UserCreation - INFO: ****************** chosen provide password check box  ****************
-11/29/2023 03:57:41 PM - UserCreation - INFO: ****************** password is inputted as : Qwer1234!!Qwer1234!!   ****************
-11/29/2023 03:57:42 PM - UserCreation - INFO: ****************** password is inputted as : Qwer1234!!Qwer1234!!   ****************
-11/29/2023 03:57:47 PM - UserCreation - INFO: ****************** clicked on create button ****************
-11/29/2023 03:57:47 PM - UserCreation - INFO: ****************** validate new user creation ****************
-11/29/2023 03:57:48 PM - UserCreation - INFO: The new user test321@gmail.comis found in the list.
+11/29/2023 04:04:18 PM - LoginPage - INFO: ****************** set username ****************
+11/29/2023 04:04:18 PM - LoginPage - INFO: ****************** input username ****************
+11/29/2023 04:04:20 PM - LoginPage - INFO: ****************** set password ****************
+11/29/2023 04:04:20 PM - LoginPage - INFO: ****************** input password ****************
+11/29/2023 04:04:22 PM - LoginPage - INFO: ****************** click on signin button ****************
+11/29/2023 04:04:22 PM - LoginPage - INFO: ******************click on sign in button ****************
+11/29/2023 04:04:32 PM - LoginPage - INFO: ****************** start validation ****************
+11/29/2023 04:04:32 PM - LoginPage - INFO: *********************** Signed in successfully with valid credentials *******************

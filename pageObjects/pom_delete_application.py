@@ -37,9 +37,6 @@ class Application:
         self.driver = driver
 
     def logIn(self):
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-        time.sleep(5)
         self.lp = LoginPage(self.driver)
         self.lp.logIn()
 
