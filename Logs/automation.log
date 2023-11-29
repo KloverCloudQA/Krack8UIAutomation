@@ -1,8 +1,17 @@
-11/29/2023 04:04:18 PM - LoginPage - INFO: ****************** set username ****************
-11/29/2023 04:04:18 PM - LoginPage - INFO: ****************** input username ****************
-11/29/2023 04:04:20 PM - LoginPage - INFO: ****************** set password ****************
-11/29/2023 04:04:20 PM - LoginPage - INFO: ****************** input password ****************
-11/29/2023 04:04:22 PM - LoginPage - INFO: ****************** click on signin button ****************
-11/29/2023 04:04:22 PM - LoginPage - INFO: ******************click on sign in button ****************
-11/29/2023 04:04:32 PM - LoginPage - INFO: ****************** start validation ****************
-11/29/2023 04:04:32 PM - LoginPage - INFO: *********************** Signed in successfully with valid credentials *******************
+11/29/2023 04:36:48 PM - UserCreation - INFO: ****************** go to users list page ****************
+11/29/2023 04:36:54 PM - UserCreation - INFO: ****************** clicked on create user icon ****************
+11/29/2023 04:36:57 PM - UserCreation - INFO: ****************** firstname inputted ****************
+11/29/2023 04:37:00 PM - UserCreation - INFO: ****************** lastname inputted ****************
+11/29/2023 04:37:05 PM - UserCreation - INFO: ****************** clicked on auth type dropdown button ****************
+11/29/2023 04:37:06 PM - UserCreation - INFO: ****************** auth_type is chosen as : Password ****************
+11/29/2023 04:37:07 PM - UserCreation - INFO: ****************** inputted email is : test445@gmail.com ****************
+11/29/2023 04:37:08 PM - UserCreation - INFO: ****************** chosen provide password check box  ****************
+11/29/2023 04:37:10 PM - UserCreation - INFO: ****************** password is inputted as : Qwer1234!!Qwer1234!!   ****************
+11/29/2023 04:37:11 PM - UserCreation - INFO: ****************** password is inputted as : Qwer1234!!Qwer1234!!   ****************
+11/29/2023 04:37:13 PM - UserCreation - INFO: ****************** clicked on team dropdown ****************
+11/29/2023 04:37:16 PM - UserCreation - INFO: ****************** chosen team as: ron-atlas ****************
+11/29/2023 04:37:18 PM - UserCreation - INFO: ****************** clicked on create button ****************
+11/29/2023 04:37:21 PM - UserCreation - INFO: ****************** chosen role as: Mia ****************
+11/29/2023 04:37:26 PM - UserCreation - INFO: ****************** clicked on create button ****************
+11/29/2023 04:37:26 PM - UserCreation - INFO: ****************** validate new user creation ****************
+11/29/2023 04:37:27 PM - UserCreation - INFO: The new user test445@gmail.comis found in the list.

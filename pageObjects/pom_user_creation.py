@@ -11,6 +11,8 @@ import time
 import logging
 import pytest
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
@@ -29,6 +31,8 @@ class UserCreation:
     auth_type = input("Choose auth type(Password or SSO): ")
     email = input("Enter the email: ")
     password = input("Enter the password: ")
+    team_name = input("Enter the team name : ")
+    role_name = input("Enter the role name : ")
 
     def __init__(self, driver):
         self.driver = driver
@@ -80,7 +84,7 @@ class UserCreation:
     def choose_want_to_create_admin_user_checkbox(self):
         self.driver.find_element(By.XPATH, Locator.create_admin_checkbox_xpath).click()
         time.sleep(1)
-        self.logger.info(f"****************** chosen provide password check box  ****************")
+        self.logger.info(f"****************** chosen want to create admin user check box  ****************")
 
     def input_password(self):
         self.driver.find_element(By.XPATH, Locator.password_input_bar_xpath).send_keys(self.password)
@@ -91,6 +95,44 @@ class UserCreation:
         self.driver.find_element(By.XPATH, Locator.password_confirmation_input_bar_xpath).send_keys(self.password)
         time.sleep(1)
         self.logger.info(f"****************** password is inputted as : {self.password}   ****************")
+
+    def choose_team(self):
+        self.driver.find_element(By.XPATH, Locator.team_dropdown_button_xpath).click()
+        time.sleep(2)
+        self.logger.info("****************** clicked on team dropdown ****************")
+        self.driver.find_element(By.XPATH, "//span[normalize-space()='" + self.team_name + "']").click()
+        time.sleep(1)
+        # Create an ActionChains instance
+        actions = ActionChains(self.driver)
+
+        # Simulate pressing the 'Tab' key
+        actions.send_keys(Keys.TAB)
+
+        # Perform the action
+        actions.perform()
+
+        # Optional: You may want to wait for some time to see the effect (e.g., for demonstration purposes)
+        time.sleep(2)
+        self.logger.info(f"****************** chosen team as: {self.team_name} ****************")
+
+    def choose_role(self):
+        self.driver.find_element(By.XPATH, Locator.roles_dropdown_button_xpath).click()
+        time.sleep(2)
+        self.logger.info("****************** clicked on create button ****************")
+        self.driver.find_element(By.XPATH, "//span[normalize-space()='" + self.role_name + "']").click()
+        time.sleep(1)
+        # Create an ActionChains instance
+        actions = ActionChains(self.driver)
+
+        # Simulate pressing the 'Tab' key
+        actions.send_keys(Keys.TAB)
+
+        # Perform the action
+        actions.perform()
+
+        # Optional: You may want to wait for some time to see the effect (e.g., for demonstration purposes)
+        time.sleep(2)
+        self.logger.info(f"****************** chosen role as: {self.role_name} ****************")
 
     def click_on_create_button(self):
         self.driver.find_element(By.XPATH, Locator.create_button_user_xpath).click()
@@ -129,7 +171,7 @@ class UserCreation:
         self.click_on_create_button()
         self.validate_user_creation()
 
-    def admin_user_creation(self):
+    def secondaryAdmin_user_creation(self):
         self.go_users_list_page()
         self.click_on_create_user_icon()
         self.input_firstname()
@@ -140,5 +182,20 @@ class UserCreation:
         self.choose_provide_password_checkbox()
         self.input_password()
         self.input_confirm_password()
+        self.click_on_create_button()
+        self.validate_user_creation()
+
+    def nonAdmin_user_creation_with_team(self):
+        self.go_users_list_page()
+        self.click_on_create_user_icon()
+        self.input_firstname()
+        self.input_lastname()
+        self.choose_auth_type()
+        self.input_email()
+        self.choose_provide_password_checkbox()
+        self.input_password()
+        self.input_confirm_password()
+        self.choose_team()
+        self.choose_role()
         self.click_on_create_button()
         self.validate_user_creation()
