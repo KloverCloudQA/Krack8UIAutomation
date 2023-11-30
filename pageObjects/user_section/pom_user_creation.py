@@ -31,8 +31,6 @@ class UserCreation:
     auth_type = input("Choose auth type(Password or SSO): ")
     email = input("Enter the email: ")
     password = input("Enter the password: ")
-    team_name = input("Enter the team name : ")
-    role_name = input("Enter the role name : ")
 
     def __init__(self, driver):
         self.driver = driver
@@ -41,7 +39,7 @@ class UserCreation:
         self.lp = LoginPage(self.driver)
         self.lp.logIn()
 
-    # -----------------------------------------Delete Application---------------------------------------------------
+    # -----------------------------------------user section---------------------------------------------------
 
     def go_users_list_page(self):
         self.logger.info("****************** go to users list page ****************")
@@ -97,10 +95,11 @@ class UserCreation:
         self.logger.info(f"****************** password is inputted as : {self.password}   ****************")
 
     def choose_team(self):
+        team_name = input("Enter the team name : ")
         self.driver.find_element(By.XPATH, Locator.team_dropdown_button_xpath).click()
         time.sleep(2)
         self.logger.info("****************** clicked on team dropdown ****************")
-        self.driver.find_element(By.XPATH, "//span[normalize-space()='" + self.team_name + "']").click()
+        self.driver.find_element(By.XPATH, "//span[normalize-space()='" + team_name + "']").click()
         time.sleep(1)
         # Create an ActionChains instance
         actions = ActionChains(self.driver)
@@ -113,13 +112,14 @@ class UserCreation:
 
         # Optional: You may want to wait for some time to see the effect (e.g., for demonstration purposes)
         time.sleep(2)
-        self.logger.info(f"****************** chosen team as: {self.team_name} ****************")
+        self.logger.info(f"****************** chosen team as: {team_name} ****************")
 
     def choose_role(self):
+        role_name = input("Enter the role name : ")
         self.driver.find_element(By.XPATH, Locator.roles_dropdown_button_xpath).click()
         time.sleep(2)
         self.logger.info("****************** clicked on create button ****************")
-        self.driver.find_element(By.XPATH, "//span[normalize-space()='" + self.role_name + "']").click()
+        self.driver.find_element(By.XPATH, "//span[normalize-space()='" + role_name + "']").click()
         time.sleep(1)
         # Create an ActionChains instance
         actions = ActionChains(self.driver)
@@ -132,7 +132,7 @@ class UserCreation:
 
         # Optional: You may want to wait for some time to see the effect (e.g., for demonstration purposes)
         time.sleep(2)
-        self.logger.info(f"****************** chosen role as: {self.role_name} ****************")
+        self.logger.info(f"****************** chosen role as: {role_name} ****************")
 
     def click_on_create_button(self):
         self.driver.find_element(By.XPATH, Locator.create_button_user_xpath).click()
@@ -158,27 +158,13 @@ class UserCreation:
         except NoSuchElementException:
             self.logger.info("The new user " + self.email + "is found in the list.")
 
-    def nonAdmin_user_creation(self):
+    def simple_nonAdmin_user_creation(self):
         self.go_users_list_page()
         self.click_on_create_user_icon()
         self.input_firstname()
         self.input_lastname()
         self.choose_auth_type()
         self.input_email()
-        self.choose_provide_password_checkbox()
-        self.input_password()
-        self.input_confirm_password()
-        self.click_on_create_button()
-        self.validate_user_creation()
-
-    def secondaryAdmin_user_creation(self):
-        self.go_users_list_page()
-        self.click_on_create_user_icon()
-        self.input_firstname()
-        self.input_lastname()
-        self.choose_auth_type()
-        self.input_email()
-        self.choose_want_to_create_admin_user_checkbox()
         self.choose_provide_password_checkbox()
         self.input_password()
         self.input_confirm_password()
@@ -196,6 +182,48 @@ class UserCreation:
         self.input_password()
         self.input_confirm_password()
         self.choose_team()
+        self.click_on_create_button()
+        self.validate_user_creation()
+
+    def nonAdmin_user_creation_with_role(self):
+        self.go_users_list_page()
+        self.click_on_create_user_icon()
+        self.input_firstname()
+        self.input_lastname()
+        self.choose_auth_type()
+        self.input_email()
+        self.choose_provide_password_checkbox()
+        self.input_password()
+        self.input_confirm_password()
         self.choose_role()
+        self.click_on_create_button()
+        self.validate_user_creation()
+
+    def nonAdmin_user_creation_with_team_and_role(self):
+        self.go_users_list_page()
+        self.click_on_create_user_icon()
+        self.input_firstname()
+        self.input_lastname()
+        self.choose_auth_type()
+        self.input_email()
+        self.choose_provide_password_checkbox()
+        self.input_password()
+        self.input_confirm_password()
+        self.choose_team()
+        self.choose_role()
+        self.click_on_create_button()
+        self.validate_user_creation()
+
+    def secondaryAdmin_user_creation(self):
+        self.go_users_list_page()
+        self.click_on_create_user_icon()
+        self.input_firstname()
+        self.input_lastname()
+        self.choose_auth_type()
+        self.input_email()
+        self.choose_want_to_create_admin_user_checkbox()
+        self.choose_provide_password_checkbox()
+        self.input_password()
+        self.input_confirm_password()
         self.click_on_create_button()
         self.validate_user_creation()
