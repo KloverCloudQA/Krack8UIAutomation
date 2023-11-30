@@ -144,53 +144,6 @@ class Locator(object):
     #  for failed app
     Application_Initialization_failed = "//h5[contains(text(),'*** Application Initialization Failed ***')]"
 
-    # *************************************** database ********************************
-    # go to Database page
-
-    Database_button = "//div[@class='cdk-overlay-container']//button[4]"
-    wait_forfilter = "//span[contains(text(),'Select Database')]"
-    MySQL_button = "//mat-tab-body//button[1]"
-
-    Postgresql = "//h3[contains(text(),'Postgresql')]"
-    Postgresql_Version_12_3_0 = "//span[contains(text(),'12.3.0')]"
-    Web_Client_Email = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[5]/div[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
-    Web_Client_Password = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[5]/div[2]/div[1]/mat-form-field[2]/div[1]/div[1]/div[3]/input[1]"
-
-    Mongodb = "//h3[contains(text(),'Mongodb')]"
-    teamBox_database = "(//div[@class='mat-select-arrow-wrapper'])[1]"
-    defaultTeam_database = "//span[contains(text(),'default')]"
-    firstTeam = "/html[1]/body[1]/div[3]/div[2]/div[1]/div[1]/div[1]/mat-option[3]/span[1]"
-
-    namespace_first = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div/form/div[3]/button[1]"
-    database_ServerName = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
-    initial_AdminPassword = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
-    confirm_Password = "//*[@id='mat-input-2']"
-    selectVersion_box = "//*[@id='mat-select-0']/div/div[2]"
-    version_8_0_19 = "//span[contains(text(),'8.0.19')]"
-
-    next_button = "//span[normalize-space()='Next']"
-    enableWebClient = "//label[@for='mat-checkbox-2-input']//div[@class='mat-checkbox-inner-container']"
-    confirm_button = "//button[@type='submit']"
-
-    Database_CreatedMsg = "/html[1]/body[1]/kc-toastr[1]/div[1]/div[1]/div[2]/p[2]"
-
-    # created validation by snapshot button
-    WaitTo_Create = "/html[1]/body[1]/kc-toastr[1]/div[1]/div[1]/div[2]/p[2]"
-    # waitTo_create = "//h3[contains(text(),'Allocated Resources Per Instance')]"
-    # validation
-    Event_log = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-details[1]/kc-page-layout[1]/kc-page-layout-content[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]"
-    Database_FinalStatus = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-details/kc-page-layout/kc-page-layout-content/div/kc-database-initialization/div/div[2]/div[2]/pre[10]"
-    Cancel_msg = "//body/kc-toastr[1]/div[1]/div[1]/button[1]/i[1]"
-
-    # *********************************** delete database **********************************
-
-    database_list = "(//span[@class='item-label'][normalize-space()='Database'])[1]"
-    database_name = "//span[normalize-space()='test-sql-221']"
-    database_Settings = "(//span[@class='inline-block py-3 pl-2'][normalize-space()='Settings'])[1]"
-    database_Delete = "//span[normalize-space()='Delete']"
-    database_nameBox = "(//input[@placeholder='Type here...'])[1]"
-    deletePermanently = "//span[@class='ng-star-inserted']"
-
     # ************************************ create cache *********************************************
     cacheButton = "(//span[@class='ng-tns-c6-2'][normalize-space()='Cache'])[1]"
     redis_button = "//span[contains(text(),'5.0.7,6.0.5')]"
@@ -286,3 +239,60 @@ class Locator(object):
     team_dropdown_button_xpath = "//div[@class='mat-select-value']/span/span[text()='default']"
     roles_dropdown_button_xpath = "/html/body/div[3]/div[2]/div/mat-dialog-container/kc-user-form/div/form/mat-dialog-content/mat-form-field[5]/div/div[1]/div[3]/mat-select/div/div[1]/span"
     create_button_user_xpath = "//span[text()='Create']"
+
+    # *************************************** database ********************************
+    button_create_new_database_xpath = "//span[@_ngcontent-nfa-c43 and text()='Create New']"
+    database_framework_xpath = "//h3[contains(text(), 'Postgresql')]"
+    team_list_dropdown_xpath = "(//div[@class='mat-select-arrow-wrapper'])[1]"
+    choose_team_from_list_xpath = "//span[normalize-space()='default']"
+    choose_namespace_database_xpath = "//h3[@class='vpc__name' and text()='bigSpace']"
+    textbox_database_server_name_xpath = "//input[contains(@class, 'mat-input-element') and contains(@id, 'mat-input-5')]"
+    textbox_initial_admin_password_database_xpath = "//input[contains(@class, 'mat-input-element') and contains(@id, 'mat-input-6') and contains(@autocomplete, 'new-password')]"
+    textbox_confirm_password_xpath = "//input[contains(@class, 'mat-input-element') and contains(@autocomplete, 'new-password') and contains(@id, 'mat-input-7') and contains(@type, 'password')]"
+    button_next_database_xpath = "//span[contains(text(),'Next')]"
+    button_confirm_database_xpath = "//span[contains(@class, 'ng-tns-c45-112') and contains(text(), 'Confirm')]"
+    button_database_status_xpath = "//span[contains(@class, 'status__btn')]"
+
+    Database_button = "//div[@class='cdk-overlay-container']//button[4]"
+    wait_forfilter = "//span[contains(text(),'Select Database')]"
+    MySQL_button = "//mat-tab-body//button[1]"
+
+    Postgresql = "//h3[contains(text(),'Postgresql')]"
+    Postgresql_Version_12_3_0 = "//span[contains(text(),'12.3.0')]"
+    Web_Client_Email = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[5]/div[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
+    Web_Client_Password = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[5]/div[2]/div[1]/mat-form-field[2]/div[1]/div[1]/div[3]/input[1]"
+
+    Mongodb = "//h3[contains(text(),'Mongodb')]"
+
+    defaultTeam_database = "//span[contains(text(),'default')]"
+    firstTeam = "/html[1]/body[1]/div[3]/div[2]/div[1]/div[1]/div[1]/mat-option[3]/span[1]"
+
+    namespace_first = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div/form/div[3]/button[1]"
+    database_ServerName = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
+    initial_AdminPassword = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/div[2]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
+    confirm_Password = "//*[@id='mat-input-2']"
+    selectVersion_box = "//*[@id='mat-select-0']/div/div[2]"
+    version_8_0_19 = "//span[contains(text(),'8.0.19')]"
+
+    next_button = "//span[normalize-space()='Next']"
+    enableWebClient = "//label[@for='mat-checkbox-2-input']//div[@class='mat-checkbox-inner-container']"
+    confirm_button = "//button[@type='submit']"
+
+    Database_CreatedMsg = "/html[1]/body[1]/kc-toastr[1]/div[1]/div[1]/div[2]/p[2]"
+
+    # created validation by snapshot button
+    WaitTo_Create = "/html[1]/body[1]/kc-toastr[1]/div[1]/div[1]/div[2]/p[2]"
+    # waitTo_create = "//h3[contains(text(),'Allocated Resources Per Instance')]"
+    # validation
+    Event_log = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-database-details[1]/kc-page-layout[1]/kc-page-layout-content[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/span[1]"
+    Database_FinalStatus = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-details/kc-page-layout/kc-page-layout-content/div/kc-database-initialization/div/div[2]/div[2]/pre[10]"
+    Cancel_msg = "//body/kc-toastr[1]/div[1]/div[1]/button[1]/i[1]"
+
+    # *********************************** delete database **********************************
+
+    database_list = "(//span[@class='item-label'][normalize-space()='Database'])[1]"
+    database_name = "//span[normalize-space()='test-sql-221']"
+    database_Settings = "(//span[@class='inline-block py-3 pl-2'][normalize-space()='Settings'])[1]"
+    database_Delete = "//span[normalize-space()='Delete']"
+    database_nameBox = "(//input[@placeholder='Type here...'])[1]"
+    deletePermanently = "//span[@class='ng-star-inserted']"
