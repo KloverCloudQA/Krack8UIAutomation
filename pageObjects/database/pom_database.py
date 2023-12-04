@@ -43,6 +43,7 @@ class Database:
     mysql_framework = Locator.button_mysql_xpath
     mongodb_framework = Locator.button_mongodb_xpath
     postgresql_framework = Locator.button_postgresql_xpath
+    checkbox_enable_snapshot_service = Locator.checkbox_enable_snapshot_service_xpath
 
     # database_framework = input("Choose the database framework by typing Mysql/Postgresql/Mongodb : ")
     database_name = input("Input your database name : ")
@@ -108,7 +109,8 @@ class Database:
             time.sleep(1)
             try:
                 namespace = WebDriverWait(self.driver, 30).until(
-                    EC.visibility_of_element_located((By.XPATH, "//h3[@class='vpc__name' and text()='" + self.namespace_name + "']")))
+                    EC.visibility_of_element_located(
+                        (By.XPATH, "//h3[@class='vpc__name' and text()='" + self.namespace_name + "']")))
                 if namespace.is_displayed():
                     time.sleep(2)
                     pass
@@ -159,8 +161,9 @@ class Database:
         user_input = input("Do you want to enable the web client feature? (y/n): ")
         # If the user chooses to enable the web client feature
         if user_input.lower() == 'y':
-            self.driver.find_element(By.XPATH,self.checkbox_Enable_Web_Client).click()
+            self.driver.find_element(By.XPATH, self.checkbox_Enable_Web_Client).click()
             time.sleep(2)
+            self.logger.info("'Enable Web Client' chosen")
             web_client_username = input("Input your web_client_username : ")
             web_client_password = input("Input your web_client_password : ")
 
@@ -172,9 +175,18 @@ class Database:
                 time.sleep(1)
                 self.logger.info(f"inputted webclient password : {web_client_password}")
             except Exception as e:
-                print(f"Exception: {e}")
-                print("Element not found within the timeout.")
+                self.logger.info(f"Exception: {e}")
+                self.logger.info("Element not found within the timeout.")
                 # Add more debug information if needed
+
+    def choose_enable_snapshot_service_checkbox(self):
+        # Get user input
+        user_input = input("Do you want to enable the snapshot service? (y/n): ")
+        # If the user choose to enable the snapshot service
+        if user_input.lower() == 'y':
+            self.driver.find_element(By.XPATH, self.checkbox_enable_snapshot_service).click()
+            time.sleep(2)
+            self.logger.info("'enabled snapshot service' chosen")
 
     def wait_to_complete_database_creation(self):
         self.logger.info("wait for a while complete creation")
@@ -219,9 +231,9 @@ class Database:
         self.set_initial_admin_password()
         self.set_confirm_password()
         self.choose_Enable_Web_Client_checkbox()
+        self.choose_enable_snapshot_service_checkbox()
         self.click_on_next_button()
         self.click_on_next_button()
         self.click_on_button_confirm()
         self.wait_to_complete_database_creation()
-
 

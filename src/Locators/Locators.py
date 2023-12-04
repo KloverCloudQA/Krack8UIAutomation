@@ -261,7 +261,8 @@ class Locator(object):
     checkbox_Enable_Web_Client_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[4]/div[1]/div/mat-checkbox/label/span"
     textbox_web_client_username_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[6]/div[2]/div/mat-form-field[1]/div/div[1]/div[3]/input"
     textbox_web_client_password_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[6]/div[2]/div/mat-form-field[2]/div/div[1]/div[3]/input"
-
+    # snapshot service
+    checkbox_enable_snapshot_service_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'Enable Snapshot Service')]"
     Database_button = "//div[@class='cdk-overlay-container']//button[4]"
     wait_forfilter = "//span[contains(text(),'Select Database')]"
     MySQL_button = "//mat-tab-body//button[1]"
