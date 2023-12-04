@@ -33,50 +33,46 @@ class LoginPage:
         self.driver = driver
 
     def go_to_login_page(self):
-        self.logger.info("****************** go to login page ****************")
+        self.logger.info("opened login page")
         self.driver.get(self.baseURL)
-        self.logger.info("****************** maximize_window ****************")
+        self.logger.info("maximized_window")
         self.driver.maximize_window()
         time.sleep(5)
 
     def setUserName(self, username):
-        self.logger.info("****************** input username ****************")
         self.driver.find_element(By.XPATH, self.textbox_username_id).clear()
         self.driver.find_element(By.XPATH, self.textbox_username_id).send_keys(username)
+        self.logger.info("username inputted")
 
     def setPassword(self, password):
-        self.logger.info("****************** input password ****************")
         self.driver.find_element(By.XPATH, self.textbox_password_id).clear()
         self.driver.find_element(By.XPATH, self.textbox_password_id).send_keys(password)
+        self.logger.info("password inputted")
 
     def clickLogin(self):
-        self.logger.info("******************click on sign in button ****************")
         self.driver.find_element(By.XPATH, self.button_login_xpath).click()
+        self.logger.info("clicked on sign in button")
 
     def logIn(self):
         self.driver.get(self.baseURL)
         self.driver.maximize_window()
         time.sleep(5)
-        self.logger.info("****************** set username ****************")
         self.setUserName(self.username)
         time.sleep(2)
-        self.logger.info("****************** set password ****************")
         self.setPassword(self.password)
         time.sleep(2)
-        self.logger.info("****************** click on signin button ****************")
         self.clickLogin()
         time.sleep(10)
-        self.logger.info("****************** start validation ****************")
         act_title = self.driver.title
         print(act_title)
         desired_title = "KloverCloud | Dashboard"
         if act_title == desired_title:
             assert True
             self.logger.info(
-                "*********************** Signed in successfully with valid credentials *******************")
+                "Signed in successfully")
         else:
             self.driver.save_screenshot(".\\Screenshots\\Login\\" + "test_PageTitle.png")
             self.driver.close()
-            self.logger.info("*********************** Sign In failed *******************")
+            self.logger.info("Sign In failed")
             assert False
 
