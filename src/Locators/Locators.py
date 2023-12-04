@@ -243,15 +243,24 @@ class Locator(object):
     # *************************************** database ********************************
     button_create_new_database_xpath = "//span[@_ngcontent-nfa-c43 and text()='Create New']"
     database_framework_xpath = "//h3[contains(text(), 'Postgresql')]"
+    # frameworks
+    button_mysql_xpath = "//mat-tab-body//button[1]"
+    button_mongodb_xpath = "//h3[contains(text(), 'Mongodb')]"
+    button_postgresql_xpath = "//h3[contains(text(), 'Postgresql')]"
+
     team_list_dropdown_xpath = "(//div[@class='mat-select-arrow-wrapper'])[1]"
     choose_team_from_list_xpath = "//span[normalize-space()='default']"
     choose_namespace_database_xpath = "//h3[@class='vpc__name' and text()='bigSpace']"
-    textbox_database_server_name_xpath = "//input[contains(@class, 'mat-input-element') and contains(@id, 'mat-input-5')]"
-    textbox_initial_admin_password_database_xpath = "//input[contains(@class, 'mat-input-element') and contains(@id, 'mat-input-6') and contains(@autocomplete, 'new-password')]"
-    textbox_confirm_password_xpath = "//input[contains(@class, 'mat-input-element') and contains(@autocomplete, 'new-password') and contains(@id, 'mat-input-7') and contains(@type, 'password')]"
+    textbox_database_server_name_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[2]/div/div[1]/mat-form-field/div/div[1]/div[3]/input"
+    textbox_initial_admin_password_database_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[2]/div/div[2]/mat-form-field/div/div[1]/div[3]/input"
+    textbox_confirm_password_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[2]/div/div[3]/mat-form-field/div/div[1]/div[3]/input"
     button_next_database_xpath = "//span[contains(text(),'Next')]"
-    button_confirm_database_xpath = "//span[contains(@class, 'ng-tns-c45-112') and contains(text(), 'Confirm')]"
+    button_confirm_database_xpath = "//button[@class='confirm-btn mat-focus-indicator mat-raised-button mat-button-base mat-primary']//span[text()='Confirm']"
     button_database_status_xpath = "//span[contains(@class, 'status__btn')]"
+    # webclient
+    checkbox_Enable_Web_Client_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[4]/div[1]/div/mat-checkbox/label/span"
+    textbox_web_client_username_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[6]/div[2]/div/mat-form-field[1]/div/div[1]/div[3]/input"
+    textbox_web_client_password_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-form/div/div/kc-horizontal-stepper/section/div[2]/div[6]/div[2]/div/mat-form-field[2]/div/div[1]/div[3]/input"
 
     Database_button = "//div[@class='cdk-overlay-container']//button[4]"
     wait_forfilter = "//span[contains(text(),'Select Database')]"
