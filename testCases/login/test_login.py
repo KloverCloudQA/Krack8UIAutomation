@@ -1,10 +1,7 @@
 import time
 import logging
-import pytest
-from selenium import webdriver
-from pageObjects.pom_LoginPage import LoginPage
+from pageObjects.auth.pom_LoginPage import LoginPage
 from utilities.readProperties import ReadConfig
-from utilities.customLogger import LogGen
 import utilities.customLogger as cl
 
 

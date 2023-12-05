@@ -1,10 +1,7 @@
 import time
 import logging
-import pytest
-from selenium import webdriver
-from pageObjects.pom_Namespace import Namespace
+from pageObjects.namespace.pom_Namespace import Namespace
 from utilities.readProperties import ReadConfig
-from utilities.customLogger import LogGen
 import utilities.customLogger as cl
 
 

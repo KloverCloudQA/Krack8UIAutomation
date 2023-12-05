@@ -1,14 +1,9 @@
 import time
 import logging
-import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 
-from pageObjects.pom_deploy_application import Application
+from pageObjects.application.pom_deploy_application import Application
 from utilities.readProperties import ReadConfig
-from utilities.customLogger import LogGen
 import utilities.customLogger as cl
-from src.Locators.Locators import Locator
 
 
 class Test_Create_Namespace:

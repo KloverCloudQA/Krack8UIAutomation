@@ -1,10 +1,6 @@
-import time
 import logging
-import pytest
-from selenium import webdriver
-from pageObjects.pom_new_application_creation import Application
+from pageObjects.application.pom_new_application_creation import Application
 from utilities.readProperties import ReadConfig
-from utilities.customLogger import LogGen
 import utilities.customLogger as cl
 
 

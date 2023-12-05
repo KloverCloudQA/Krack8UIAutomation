@@ -1,22 +1,12 @@
-from selenium import webdriver
-from selenium.common import NoSuchElementException, TimeoutException, InvalidSessionIdException
-from selenium.webdriver.common.by import By
-from src.Locators.Locators import Locator
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from src.Locators.Locators import Locator
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.common import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 import logging
-import pytest
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from utilities.readProperties import ReadConfig
-from utilities.customLogger import LogGen
 import utilities.customLogger as cl
 from src.Locators.Locators import Locator
-from pageObjects.pom_LoginPage import LoginPage
+from pageObjects.auth.pom_LoginPage import LoginPage
 
 
 class Application:
