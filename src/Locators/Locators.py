@@ -144,29 +144,6 @@ class Locator(object):
     #  for failed app
     Application_Initialization_failed = "//h5[contains(text(),'*** Application Initialization Failed ***')]"
 
-    # ************************************ create cache *********************************************
-    cacheButton = "(//span[@class='ng-tns-c6-2'][normalize-space()='Cache'])[1]"
-    redis_button = "//span[contains(text(),'5.0.7,6.0.5')]"
-    teamBox_c = "//div[@class='mat-select-value']"
-    Namespace_c = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-cache-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/form[1]/div[3]/button[1]"
-    serverNameBox_c = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-cache-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
-    adminPassword_c = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-cache-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[2]/div[1]/div[1]/div[3]/input[1]"
-    confirmPassword_c = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-cache-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[3]/div[1]/div[1]/div[3]/input[1]"
-    selectVersion_c = "(//div[@class='mat-select-value'])[1]"
-
-    Cache_Version_5_0_7 = "//span[@class='mat-option-text'][normalize-space()='5.0.7']"
-    Cache_Version_6_0_5 = "//span[contains(text(),'6.0.5')]"
-    Web_Client_Email_cache = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-cache-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[7]/div[2]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"
-    Web_Client_Password_cache = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-cache-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[7]/div[2]/div[1]/mat-form-field[2]/div[1]/div[1]/div[3]/input[1]"
-    next_Button_c = "(//span[normalize-space()='Next'])[1]"
-    confirmButton_c = "(//span[@class='ml-auto mr-auto text-center ng-tns-c42-31'])[1]"
-    enable_WebClient = "(//div[@class='mat-checkbox-inner-container'])[2]"
-
-    DefaultTeam_cache = "//span[contains(text(),'default')]"
-    Cache_createdMsg = "/html[1]/body[1]/kc-toastr[1]/div[1]/div[1]/div[2]/p[2]"
-
-    Access_Terminal = "// a[contains(text(), 'Access Terminal')]"
-
     # ******************************** Delete Cache *****************************************
 
     Cache_S = "(//span[@class='item-label'][normalize-space()='Cache'])[1]"
@@ -311,3 +288,19 @@ class Locator(object):
     # restart
     button_restart_database_xpath = "//button[@class='btn btn-primary round w-32 mat-focus-indicator mat-button mat-button-base ng-trigger ng-trigger-fadeInRight']"
     button_okay_database_xpath = "//span[contains(text(),'Okay')]"
+    # ************************************ create cache *********************************************
+    cache_framework_redis_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/div[1]/button/span/div"
+    dropdown_team_list_xpath = "(//div[@class='mat-select-arrow-wrapper'])[1]"
+    button_namespace_cache_xpath = "//h3[@class='vpc__name' and text()='bigSpace']"
+    textbox_cache_server_name_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/div[2]/div/mat-form-field[1]/div/div[1]/div[3]/input"
+    textbox_initial_admin_password_cache_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/div[2]/div/mat-form-field[2]/div/div[1]/div[3]/input"
+    textbox_confirm_password_cache_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/div[2]/div/mat-form-field[3]/div/div[1]/div[3]/input"
+    dropdown_version_list_cache_xpath = "//div[@class='mat-select-value']"
+    checkbox_add_storage_cache_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'Add Storage')]"
+    checkbox_enable_web_client_cache_xpath = "//span[contains(@class, 'mat-checkbox-label') and contains(text(), 'Enable Web Client (P3 X Redis UI)')]"
+    textbox_web_client_username_cache_xpath = "//input[contains(@class, 'mat-input-element') and @type='text' and @id='mat-input-8']"
+    textbox_web_client_password_cache_xpath = "//input[@type='password' and @id='mat-input-9']"
+    checkbox_enable_snapshot_service_cache_xpath = "//div[contains(@class, 'slider-row') and .//span[contains(@class, 'mat-checkbox-label') and contains(text(), 'Enable Snapshot Service')]]"
+    button_next_cache_xpath = "//span[normalize-space()='Next']"
+    button_confirm_cache_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/form/div[2]/button[1]/span/div/span"
+    button_cache_status_xpath = "//span[contains(@class, 'status')]"
