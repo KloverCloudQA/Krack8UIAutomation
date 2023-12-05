@@ -302,7 +302,12 @@ class Locator(object):
 
     database_list = "(//span[@class='item-label'][normalize-space()='Database'])[1]"
     database_name = "//span[normalize-space()='test-sql-221']"
-    database_Settings = "(//span[@class='inline-block py-3 pl-2'][normalize-space()='Settings'])[1]"
-    database_Delete = "//span[normalize-space()='Delete']"
-    database_nameBox = "(//input[@placeholder='Type here...'])[1]"
-    deletePermanently = "//span[@class='ng-star-inserted']"
+    database_Settings_xpath = "(//span[@class='inline-block py-3 pl-2'][normalize-space()='Settings'])[1]"
+    button_database_Delete_xpath = "//span[contains(text(),'Delete')]"
+    textbox_database_name_xpath = "//input[@placeholder='Type here...']"
+    button_delete_permanently_database_xpath = "//span[contains(text(),'I understand this, Delete permanently')]"
+    # Application_Deleted_Success_msg = "//p[normalize-space()='Application Deleted Successfully']"
+    # DeleteApp_byIcon = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/kc-application-init[1]/div[1]/button[1]"
+    # restart
+    button_restart_database_xpath = "//button[@class='btn btn-primary round w-32 mat-focus-indicator mat-button mat-button-base ng-trigger ng-trigger-fadeInRight']"
+    button_okay_database_xpath = "//span[contains(text(),'Okay')]"

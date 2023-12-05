@@ -237,3 +237,4 @@ class Database:
         self.click_on_button_confirm()
         self.wait_to_complete_database_creation()
 
+# ------------------------------------------database deletion----------------------------------------------------
