@@ -5,7 +5,7 @@ from utilities.readProperties import ReadConfig
 import utilities.customLogger as cl
 
 
-class Test_001_Login:
+class TestLogin:
     baseURL = ReadConfig.getApplicationURL()
     username = ReadConfig.getUsername()
     password = ReadConfig.getPassword()

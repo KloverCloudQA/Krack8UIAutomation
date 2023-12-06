@@ -19,7 +19,7 @@ class Locator(object):
     LogIn_Authentication_Error = "//body[1]/kc-toastr[1]/div[1]/div[1]"
 
     # ************************************************** Dashboard page************************************
-    Dashboard_button = "//span[contains(text(),'Dashboard')]"
+    button_dashboard_sidebar_xpath = "//span[contains(text(),'Dashboard')]"
     Namespace_button_from_SideBar = "//span[contains(text(),'Namespace')]"  # XPATH
     Dashboard_title = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/kc-toolbar/div/h1"
 
@@ -220,6 +220,7 @@ class Locator(object):
     # *************************************** database ********************************
     button_create_new_database_xpath = "//span[@_ngcontent-nfa-c43 and text()='Create New']"
     database_framework_xpath = "//h3[contains(text(), 'Postgresql')]"
+    button_relational_xpath = "//div[contains(text(),'RELATIONAL')]"
     # frameworks
     button_mysql_xpath = "//mat-tab-body//button[1]"
     button_mongodb_xpath = "//h3[contains(text(), 'Mongodb')]"
@@ -288,6 +289,8 @@ class Locator(object):
     # restart
     button_restart_database_xpath = "//button[@class='btn btn-primary round w-32 mat-focus-indicator mat-button mat-button-base ng-trigger ng-trigger-fadeInRight']"
     button_okay_database_xpath = "//span[contains(text(),'Okay')]"
+    button_database_settings_xpath = "//span[@class='inline-block py-3 pl-2' and contains(text(), 'Settings')]"
+
     # ************************************ create cache *********************************************
     cache_framework_redis_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/div[1]/button/span/div"
     dropdown_team_list_xpath = "(//div[@class='mat-select-arrow-wrapper'])[1]"
@@ -298,8 +301,8 @@ class Locator(object):
     dropdown_version_list_cache_xpath = "//div[@class='mat-select-value']"
     checkbox_add_storage_cache_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'Add Storage')]"
     checkbox_enable_web_client_cache_xpath = "//span[contains(@class, 'mat-checkbox-label') and contains(text(), 'Enable Web Client (P3 X Redis UI)')]"
-    textbox_web_client_username_cache_xpath = "//input[contains(@class, 'mat-input-element') and @type='text' and @id='mat-input-8']"
-    textbox_web_client_password_cache_xpath = "//input[@type='password' and @id='mat-input-9']"
+    textbox_web_client_username_cache_xpath = "//input[contains(@class, 'mat-input-element') and @type='text' and @id='mat-input-4']"
+    textbox_web_client_password_cache_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/div[5]/div[2]/div[2]/div/mat-form-field[2]/div/div[1]/div[3]/input"
     checkbox_enable_snapshot_service_cache_xpath = "//div[contains(@class, 'slider-row') and .//span[contains(@class, 'mat-checkbox-label') and contains(text(), 'Enable Snapshot Service')]]"
     button_next_cache_xpath = "//span[normalize-space()='Next']"
     button_confirm_cache_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/form/div[2]/button[1]/span/div/span"

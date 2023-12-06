@@ -1,9 +1,3 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from src.Locators.Locators import Locator
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from src.Locators.Locators import Locator
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import time
@@ -28,6 +22,7 @@ class LoginPage:
     textbox_username_id = Locator.textbox_Email_xpath
     textbox_password_id = Locator.textbox_Password_xpath
     button_login_xpath = Locator.button_SignI_xpath
+    button_dashboard_sidebar = Locator.button_dashboard_sidebar_xpath
 
     def __init__(self, driver):
         self.driver = driver
@@ -37,7 +32,9 @@ class LoginPage:
         self.driver.get(self.baseURL)
         self.logger.info("maximized_window")
         self.driver.maximize_window()
-        time.sleep(5)
+        time.sleep(1)
+        WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, self.button_login_xpath)))
+        time.sleep(2)
 
     def setUserName(self, username):
         self.driver.find_element(By.XPATH, self.textbox_username_id).clear()
@@ -51,20 +48,14 @@ class LoginPage:
 
     def clickLogin(self):
         self.driver.find_element(By.XPATH, self.button_login_xpath).click()
+        time.sleep(1)
         self.logger.info("clicked on sign in button")
+        WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, self.button_dashboard_sidebar)))
+        time.sleep(2)
 
-    def logIn(self):
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-        time.sleep(5)
-        self.setUserName(self.username)
-        time.sleep(2)
-        self.setPassword(self.password)
-        time.sleep(2)
-        self.clickLogin()
-        time.sleep(10)
+    def login_validation(self):
+        self.logger.info("Starting login validation by matching dashboard page title")
         act_title = self.driver.title
-        print(act_title)
         desired_title = "KloverCloud | Dashboard"
         if act_title == desired_title:
             assert True
@@ -76,3 +67,9 @@ class LoginPage:
             self.logger.info("Sign In failed")
             assert False
 
+    def logIn(self):
+        self.go_to_login_page()
+        self.setUserName(self.username)
+        self.setPassword(self.password)
+        self.clickLogin()
+        self.login_validation()
