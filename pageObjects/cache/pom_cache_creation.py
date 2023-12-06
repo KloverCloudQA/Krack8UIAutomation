@@ -121,10 +121,18 @@ class CacheCreation:
         self.logger.info("clicked on confirm button")
         time.sleep(3)
 
+    def choose_add_storage_checkbox(self):
+        # Get user input
+        user_input = input("Do you want to choose 'Add Storage'? (y/n): ")
+        # If the user chooses to add storage
+        if user_input.lower() == 'y':
+            self.driver.find_element(By.XPATH, self.checkbox_add_storage_cache).click()
+            time.sleep(2)
+            self.logger.info("'Add Storage' chosen")
+
     def choose_Enable_Web_Client_checkbox(self):
         # Get user input
         user_input = input("Do you want to enable the web client feature? (y/n): ")
-        # If the user chooses to enable the web client feature
         if user_input.lower() == 'y':
             self.driver.find_element(By.XPATH, self.checkbox_enable_web_client_cache).click()
             time.sleep(2)
@@ -137,7 +145,7 @@ class CacheCreation:
                     web_client_username)
                 time.sleep(1)
                 self.logger.info(f"inputted webclient user name : {web_client_username}")
-                self.driver.find_element(By.XPATH, self.textbox_confirm_password_cache).send_keys(web_client_password)
+                self.driver.find_element(By.XPATH, self.textbox_web_client_password_cache).send_keys(web_client_password)
                 time.sleep(1)
                 self.logger.info(f"inputted webclient password : {web_client_password}")
             except Exception as e:
@@ -187,4 +195,19 @@ class CacheCreation:
         self.click_on_button_confirm()
         self.wait_to_complete_cache_creation()
 
-
+    def advanced_database_cluster_creation(self):
+        self.logger.info("Starting a simple database creation")
+        self.go_to_create_cache_page()
+        self.cache_framework()
+        self.set_access_team()
+        self.set_namespace()
+        self.set_cache_server_name()
+        self.set_initial_admin_password()
+        self.set_confirm_password()
+        self.choose_add_storage_checkbox()
+        self.choose_Enable_Web_Client_checkbox()
+        self.choose_enable_snapshot_service_checkbox()
+        self.click_on_next_button()
+        self.click_on_next_button()
+        self.click_on_button_confirm()
+        self.wait_to_complete_cache_creation()

@@ -30,3 +30,23 @@ class Test_Cache_Cluster_Creation:
         self.ob.click_on_button_confirm()
         self.ob.wait_to_complete_cache_creation()
 
+    def test_advanced_cache_creation(self, setup):
+        self.driver = setup
+        self.ob = CacheCreation(self.driver)
+        self.ob.logIn()  # login
+        self.logger.info("Starting a simple database creation")
+        self.ob.go_to_create_cache_page()
+        self.ob.cache_framework()
+        self.ob.set_access_team()
+        self.ob.set_namespace()
+        self.ob.set_cache_server_name()
+        self.ob.set_initial_admin_password()
+        self.ob.set_confirm_password()
+        self.ob.choose_add_storage_checkbox()
+        self.ob.choose_Enable_Web_Client_checkbox()
+        self.ob.choose_enable_snapshot_service_checkbox()
+        self.ob.click_on_next_button()
+        self.ob.click_on_next_button()
+        self.ob.click_on_button_confirm()
+        self.ob.wait_to_complete_cache_creation()
+
