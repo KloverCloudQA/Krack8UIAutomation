@@ -225,6 +225,7 @@ class Locator(object):
     button_mysql_xpath = "//mat-tab-body//button[1]"
     button_mongodb_xpath = "//h3[contains(text(), 'Mongodb')]"
     button_postgresql_xpath = "//h3[contains(text(), 'Postgresql')]"
+    header_select_namespace_xpath = "//span[normalize-space()='Select Namespace']"
 
     team_list_dropdown_xpath = "(//div[@class='mat-select-arrow-wrapper'])[1]"
     choose_team_from_list_xpath = "//span[normalize-space()='default']"

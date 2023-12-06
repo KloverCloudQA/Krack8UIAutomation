@@ -10,15 +10,9 @@ class Test_Database_cluster_creation:
     # logger object
     logger = cl.LogGen.customLogger(logging.DEBUG)
 
-    def test_database_deletion(self, setup):
+    def test_database_deletion_by_name(self, setup):
         self.driver = setup
         self.ob = DatabaseDeletion(self.driver)
         self.ob.logIn()  # login
-        self.logger.info("****************** starting database deletion ****************")
-        self.ob.go_database_list_page()
-        self.ob.click_on_database_from_list()
-        self.ob.click_on_settings()
-        self.ob.click_on_delete()
-        self.ob.input_database_name()
-        self.ob.click_on_delete_permanently_button()
-        self.ob.validate_database_deletion()
+        self.ob.database_deletion_by_name()
+
