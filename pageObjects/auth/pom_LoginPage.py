@@ -69,7 +69,15 @@ class LoginPage:
 
     def logIn(self):
         self.go_to_login_page()
-        self.setUserName(self.username)
-        self.setPassword(self.password)
-        self.clickLogin()
-        self.login_validation()
+        act_title = self.driver.title
+        print(act_title)
+        desired_title = "KloverCloud | Sign In"
+        if act_title == desired_title:
+            self.setUserName(self.username)
+            self.setPassword(self.password)
+            self.clickLogin()
+            self.login_validation()
+        else:
+            self.logger.info("opened login page")
+            print("already signed")
+            pass
