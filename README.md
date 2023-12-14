@@ -50,3 +50,8 @@ To Run tests parallel
 Generate pytest HTML Reports
 --pytest -v -s --html=.\\Reports\\report.html testCases/test_login.py --browser chrome
 --pytest -s -v -n=3 --html=.\\Reports\\report.html testCases/test_login.py --browser chrome
+
+--------versions-------------------
+metadata: {'Python': '3.7.7', 'Platform': 'Windows-10-10.0.22621-SP0', 'Packages': {'pytest': '7.4.3', 'pluggy': '0.13.1'}, 'Plugins': {'forked': '1.6.0', 'html': '2.0.1', 'metadata': '3.0.0', 'xdist': '1.31.0'},
+plugins: forked-1.6.0, html-2.0.1, metadata-3.0.0, xdist-1.31.0
+--------------------------------------
