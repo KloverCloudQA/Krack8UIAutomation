@@ -31,48 +31,55 @@ class Locator(object):
 
     # ******************************Create Application page********************************
 
-    SpringBoot = "//span[contains(text(),'Spring Boot')]"
+    button_webframework_springBoot_xpath = "//span[contains(text(),'Spring Boot')]"
     SpringBoot_Version_box = "//mat-select[@id='mat-select-1']"
     SpringBoot_Version_2_1_11 = "//span[contains(text(),'2.1.11')]"  # XPATH
     Java_Version_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[2]"
     Java_Version_11 = "//span[contains(text(),'11')]"
     Java_Version_8 = "//span[contains(text(),'8')]"
 
-    JavaScript = "//span[contains(text(),'JavaScript')]"
+    button_webframework_ExpressJS_xpath = "//span[contains(text(),'ExpressJS')]"
     ExpressJS = "//mat-tab-body/div[1]/div[1]/div[2]"
     Express_Js_Version_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[2]/div[1]/div[1]/div[3]"  # Xpath
     ExpressJs_Version_4_17_1 = "//span[contains(text(),'4.17.1')]"
 
-    Django = "//span[contains(text(),'Django')]"
+    button_webframework_Django_xpath = "//span[contains(text(),'Django')]"
     Python_version_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[2]/div[1]/div[1]/div[3]"  # XPATH
     Python_version_3_7_8 = "//span[contains(text(),'3.7.8')]"  # XPATH
     Python_version_3_6_11 = "//span[contains(text(),'3.6.11')]"  # XPATH
     Django_version_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[3]/div[1]/div[1]/div[3]"  # XPATH
     Django_Version_2_2_14 = "//span[contains(text(),'2.2.14')]"  # XPATH
 
-    DotNet = "//mat-tab-body/div[1]/div[1]/div[4]"
+    button__JavaScript_xpath = "//mat-tab-body/div[1]/div[1]/div[4]"
     DoNet_Version_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[2]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[1]"
     DontNet_V_3_0 = "//span[contains(text(),'3.0')]"
     DotNet_V_2_2 = "//span[contains(text(),'2.2')]"
     DotNet_V_2_1 = "//span[contains(text(),'2.1')]"
 
-    Laravel = "//span[contains(text(),'Laravel')]"
+    button_webframework_Laravel_xpath = "//span[contains(text(),'Laravel')]"
     Laravel_version_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[3]/div[1]/div[1]/div[3]"  # XPATH
     Laravel_version_6_0 = "//span[contains(text(),'6.0')]"
     Laravel_version_5_8 = "//span[contains(text(),'5.8')]"
     Laravel_version_5_7 = "//span[contains(text(),'5.7')]"
     Laravel_version_5_6 = "//span[contains(text(),'5.6')]"
 
+    button_webframework_Dot_Net_xpath = "//span[normalize-space()='Dot Net']"
+
     # Golang
-    Golang_xpath = "//span[contains(text(),'Golang')]"
+    button_webframework_Golang_xpath = "//mat-tab-body/div[1]/div[1]/div[6]/div[1]"
     Goecho_Version_box = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-form[1]/div[1]/div[1]/kc-horizontal-stepper[1]/section[1]/div[1]/div[2]/div[1]/mat-form-field[3]/div[1]/div[1]/div[3]"
     Goecho_V_4_1_14 = "//span[contains(text(),'4.1.14')]"
 
     Application_Name_bar_xpath = "//input[@id='mat-input-0']"
-    TeamBox_A = "//*[@id='mat-select-2']"
-    Team_Default = "//mat-option[@id='mat-option-1']"
-    # Team_None = "//span[contains(text(),'None')]"
-    Team_None = "//span[@class='mat-option-text'][normalize-space()='None']"
+    dropdown_teamBar_application_creation_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-form/div/div/kc-horizontal-stepper/section/div[2]/div[2]/div[1]/mat-form-field[4]/div/div[1]"
+    checkbox_Enable_Persistent_Volume_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'Enable Persistent Volume')]"
+    checkbox_Enable_In_Memory_Volume_Non_Persistent_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'Enable In-Memory Volume(Non-Persistent)')]"
+    textbox_In_Memory_Volume_Mount_Paths_Non_Persistent_xpath = "//input[@formcontrolname='inMemoryVolumeMountPath']"
+    checkbox_Enable_Auto_Scaling_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'Enable Auto Scaling')]"
+    checkbox_CPU_Threshold_application_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'CPU Threshold * (percentage)')]"
+    checkbox_Enable_Basic_Auth_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'Enable Basic Auth for External Access Url')]"
+    textbox_basic_auth_username_application_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-form/div/div/kc-horizontal-stepper/section/div[2]/mat-tab-group/div/mat-tab-body/div/div[2]/div/kc-application-resource-selection-form/div/form/div[7]/div/div/div[2]/div/div[1]/mat-form-field/div/div[1]/div[3]/input"
+    textbox_basic_auth_password_application_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-form/div/div/kc-horizontal-stepper/section/div[2]/mat-tab-group/div/mat-tab-body/div/div[2]/div/kc-application-resource-selection-form/div/form/div[7]/div/div/div[2]/div/div[2]/mat-form-field/div/div[1]/div[3]/input"
     Next_button = "//*[@id='msgContainer']/div/kc-horizontal-stepper/section/div/div[3]/button[2]"
 
     Choose_Namespace_one = "//mat-tab-body/div[1]/div[1]/div[1]/button[1]/span[1]/div[1]/div[1]"
@@ -119,6 +126,8 @@ class Locator(object):
     # Application Deployed! = "//body/div[3]/div[1]/div[1]/snack-bar-container[1]/simple-snack-bar[1]"
     # To_deploy = "//li[@id='6367295d806b560001d2dd50']//*[name()='svg']//*[name()='rect']"  # XPATH
     To_deploy = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/*[name()='svg'][1]"
+    icon_application_build_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-details/div/div/kc-ci-cd-pipeline/div[1]/div/div[2]/div/div[1]/ul/li"
+    button_application_build_info_xpath = "//span[contains(text(),'Info')]"
     Deploy_button = "//span[normalize-space()='Deploy']"
     Okay_button = "//span[contains(text(),'Okay')]"
     Deployment_Pending_msg = "//span[contains(text(),'Deployment is now in pending. It will take a momen')]"
@@ -143,7 +152,7 @@ class Locator(object):
 
     #  for failed app
     Application_Initialization_failed = "//h5[contains(text(),'*** Application Initialization Failed ***')]"
-
+    checkbox_application_build_trigger_mode_manual_xpath = "//div[@class='mat-radio-label-content' and contains(text(), 'Manual')]"
     # ******************************** Delete Cache *****************************************
 
     Cache_S = "(//span[@class='item-label'][normalize-space()='Cache'])[1]"
@@ -291,7 +300,14 @@ class Locator(object):
     button_restart_database_xpath = "//button[@class='btn btn-primary round w-32 mat-focus-indicator mat-button mat-button-base ng-trigger ng-trigger-fadeInRight']"
     button_okay_database_xpath = "//span[contains(text(),'Okay')]"
     button_database_settings_xpath = "//span[@class='inline-block py-3 pl-2' and contains(text(), 'Settings')]"
-
+    text_manage_snapshot_database_xpath = "//h3[normalize-space()='Manage Snapshot']"
+    button_edit_to_manage_snapshot_xpath = "(//button[@class='btn btn-accent round w-32 mat-focus-indicator mat-button mat-button-base ng-trigger ng-trigger-fadeInRight' and .//span[text()='Edit']])[2]"
+    checkbox_to_enable_manage_snapshot_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-database-details/kc-page-layout/kc-page-layout-content/div/kc-database-settings/div/div[1]/div[2]/div/div[2]/div[1]/div[1]/mat-checkbox/label/div"
+    button_save_to_manage_snapshot_xpath = "//span[normalize-space()='Save']"
+    button_close_to_manage_snapshot_xpath = "//span[normalize-space()='Close']"
+    button_snapshot_from_header_xpath = "//span[normalize-space()='Snapshot']"
+    button_take_snapshot_xpath = "//span[@class='ng-tns-c42-64' and text()='Take Snapshot']"
+    checkbox_default_automated_scheduler_config_xpath = "//span[@class='mat-checkbox-label' and contains(text(), 'Default Automated Scheduler Config')]"
     # ************************************ create cache *********************************************
     cache_framework_redis_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/div[1]/button/span/div"
     dropdown_team_list_xpath = "(//div[@class='mat-select-arrow-wrapper'])[1]"
