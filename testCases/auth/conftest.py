@@ -7,10 +7,11 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.ie.service import Service as IEService
 from webdriver_manager.microsoft import IEDriverManager
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture()
-def setup(browser):
+def setup_incognito_mode(browser):
     if browser == 'chrome':
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         driver.maximize_window()
@@ -30,6 +31,24 @@ def setup(browser):
     driver.quit()
 
 
+@pytest.fixture
+def setup_chrome_with_sessions():
+    chrome_options = Options()
+    chrome_options.add_argument("--remote-debugging-port=9222")
+    chrome_options.add_argument(
+        "user-data-dir=C:\\Users\\KloverCloud\\PycharmProjects\\Krack8UIAutomation\\src\\chromedriver\\chromedata")
+    chrome_driver = "C:\\Users\\KloverCloud\\PycharmProjects\\Krack8UIAutomation\\src\\chromedriver\\chromedriver.exe"
+
+    # Remove 'executable_path' argument
+    driver = webdriver.Chrome(options=chrome_options)
+
+    # Return the driver instance
+    yield driver
+
+    # Teardown: Close the driver after the test
+    driver.quit()
+
+
 def pytest_addoption(parser):  # This will get the value from CLI /hooks
     parser.addoption("--browser")
 
@@ -37,20 +56,3 @@ def pytest_addoption(parser):  # This will get the value from CLI /hooks
 @pytest.fixture()
 def browser(request):  # This will return the Browser value to method
     return request.config.getoption("--browser")
-
-
-# -------------- To Generate pytest HTML Report ---------------
-
-# It is hooke for Adding Environment info to HTML Report
-# It is hooke for Adding Environment info to HTML Report
-# def pytest_configure(config):
-#     config._metadata['Project Name'] = 'cluster'
-#     config._metadata['Module Name'] = 'Login'
-#     config._metadata['Tester'] = 'Porag'
-#
-#
-# # It is hooke for delete/Modify Environment info to HTML Report
-# @pytest.mark.optionalhook
-# def pytest_metadata(metadata):
-#     metadata.pop("JAVA_HOME", None)
-#     metadata.pop("Plugins", None)
