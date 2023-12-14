@@ -9,6 +9,7 @@ from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 import utilities.customLogger as cl
 from src.Locators.Locators import Locator
+from selenium.webdriver.common.by import By
 
 
 class LoginPage:
@@ -33,7 +34,20 @@ class LoginPage:
         self.logger.info("maximized_window")
         self.driver.maximize_window()
         time.sleep(1)
-        WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, self.button_login_xpath)))
+        # Assume driver is your initialized WebDriver instance
+
+        # Wait for either Element 1 or Element 2 to be present on the page
+        try:
+            sign_button = WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.XPATH, self.button_login_xpath))
+            )
+            print("opened login page.")
+        except:
+            dashboard_button_from_header = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Dashboard']"))
+            )
+            print("opened dashboard page.")
+
         time.sleep(2)
 
     def setUserName(self, username):
@@ -72,12 +86,19 @@ class LoginPage:
         act_title = self.driver.title
         print(act_title)
         desired_title = "KloverCloud | Sign In"
+
         if act_title == desired_title:
             self.setUserName(self.username)
             self.setPassword(self.password)
             self.clickLogin()
             self.login_validation()
         else:
-            self.logger.info("opened login page")
-            print("already signed")
-            pass
+            self.logger.info("Already signed in or unexpected page")
+            # Check for elements on the signed-in page to confirm if the user is actually signed in
+            signed_in_elements = self.driver.find_elements(By.XPATH, "//span[normalize-space()='Dashboard']")
+
+            if signed_in_elements:
+                print("Already signed in")
+                # Additional logic for the signed-in state if needed
+            else:
+                print("Unexpected page or login failure")
