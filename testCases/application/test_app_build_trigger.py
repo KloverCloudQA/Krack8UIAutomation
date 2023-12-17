@@ -19,10 +19,10 @@ class Test_Create_Application:
     # logger object
     logger = cl.LogGen.customLogger(logging.DEBUG)
 
-    def test_custom_build_feature(self, chrome_driver):  # "to run using existing chrom browser just replace
+    def test_custom_build_feature(self, setup_chrome_with_sessions):  # "to run using existing chrom browser just replace
         # chrome_driver instance of setup"
         # self.driver = setup  # to run incognito mode
-        self.driver = chrome_driver  # to run with session
+        self.driver = setup_chrome_with_sessions  # to run with session
         self.ob = Application(self.driver)
 
         self.ob.logIn()  # login

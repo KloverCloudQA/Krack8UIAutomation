@@ -8,6 +8,7 @@ from utilities.readProperties import ReadConfig
 import utilities.customLogger as cl
 from src.Locators.Locators import Locator
 from pageObjects.auth.pom_LoginPage import LoginPage
+from pageObjects.application.pom_deploy_application import DeployApplication
 
 
 class Application:
@@ -37,6 +38,7 @@ class Application:
     checkbox_CPU_Threshold = Locator.checkbox_CPU_Threshold_application_xpath
     textbox_basic_auth_username = Locator.textbox_basic_auth_username_application_xpath
     textbox_basic_auth_password = Locator.textbox_basic_auth_password_application_xpath
+    button_build_application_pipeline = Locator.button_build_application_pipeline_xpath
 
     # web_framework_name = input("Enter the web framework name: ")
     application_name = input("Enter the application name: ")
@@ -312,8 +314,24 @@ class Application:
         except InvalidSessionIdException as e:
             self.logger.info("InvalidSessionIdException error", e)
 
+        self.logger.info("waiting to complete the creation process")
+        try:
+            wait_ToCreateApplication = WebDriverWait(self.driver, 800).until(
+                EC.visibility_of_element_located((By.XPATH, Locator.icon_application_build_xpath)))
+            if wait_ToCreateApplication.is_displayed():
+                time.sleep(3)
+                self.logger.info("The application creation process is complete")
+                assert True
+        except NoSuchElementException as e:
+            print("NoSuchElementException error", e)
+        except TimeoutException as e:
+            print("TimeoutException error", e)
+        except InvalidSessionIdException as e:
+            print("InvalidSessionIdException error", e)
+        self.wait_to_complete_app_creation()
+
     def wait_to_complete_app_creation(self):
-        self.logger.info("wait to complete creation")
+        self.logger.info("waiting to complete process")
 
         try:
             wait_ToCreateApplication = WebDriverWait(self.driver, 800).until(
@@ -328,6 +346,74 @@ class Application:
             print("TimeoutException error", e)
         except InvalidSessionIdException as e:
             print("InvalidSessionIdException error", e)
+
+    def build_application_pipeline(self):
+        try:
+            self.driver.find_element(By.XPATH, Locator.icon_application_build_xpath).click()
+            self.logger.info("clicked on application pipeline icon to build")
+            time.sleep(1)
+            self.driver.find_element(By.XPATH, self.button_build_application_pipeline).click()
+            self.logger.info("clicked build button")
+            time.sleep(1)
+            self.logger.info("waiting to complete application build")
+            self.wait_to_complete_app_build()
+            self.logger.info("pipeline build status checking")
+            self.application_build_status_check()
+        except NoSuchElementException as e:
+            self.logger.info("NoSuchElementException error", e)
+        except InvalidSessionIdException as e:
+            self.logger.info("InvalidSessionIdException error", e)
+
+        # self.logger.info("waiting to complete application build")
+        # try:
+        #     wait_To_complete_build = WebDriverWait(self.driver, 800).until(
+        #         EC.visibility_of_element_located((By.XPATH, Locator.wait_ToCreateApplication)))
+        #     if wait_To_complete_build.is_displayed():
+        #         time.sleep(4)
+        #         pass
+        #         self.logger.info("The application build process is complete")
+        #     else:
+        #         pass
+        #         self.logger.info("cross button is not found")
+        # except NoSuchElementException as e:
+        #     print("NoSuchElementException error", e)
+        # except TimeoutException as e:
+        #     print("TimeoutException error", e)
+        # except InvalidSessionIdException as e:
+        #     print("InvalidSessionIdException error", e)
+        # try:
+        #     self.driver.find_element(By.XPATH, Locator.icon_application_build_xpath).click()
+        #     self.logger.info("clicked on application build pipeline icon")
+        #     time.sleep(1)
+        #     self.driver.find_element(By.XPATH, Locator.button_application_build_info_xpath).click()
+        #     self.logger.info("clicked info button")
+        #     time.sleep(1)
+        #     try:
+        #         status_element = WebDriverWait(self.driver, 10).until(
+        #             EC.presence_of_element_located((By.XPATH, "//p[@class='m-0 body-1']"))
+        #         )
+        #         status_text = status_element.text.strip()
+        #
+        #         if status_text == "None":
+        #             print("Status is None.")
+        #             self.logger.info("Build Status is None")
+        #         elif status_text == "Success":
+        #             self.logger.info("Build Status is None")
+        #         elif status_text == "Timeout":
+        #             self.logger.info("Build Status is Timeout")
+        #         else:
+        #             print(f"Unknown status: {status_text}")
+        #             self.logger.info(f"Build Status is : {status_text}")
+        #
+        #     except Exception as e:
+        #         print(f"Error: {e}")
+        #
+        # except NoSuchElementException as e:
+        #     self.logger.info("NoSuchElementException error", e)
+        # except TimeoutException as e:
+        #     self.logger.info("TimeoutException error", e)
+        # except InvalidSessionIdException as e:
+        #     self.logger.info("InvalidSessionIdException error", e)
 
     def wait_to_complete_app_build(self):
         self.logger.info("wait to complete application build")
@@ -384,6 +470,14 @@ class Application:
             self.logger.info("TimeoutException error", e)
         except InvalidSessionIdException as e:
             self.logger.info("InvalidSessionIdException error", e)
+
+    def application_deployment(self):
+        self.dp = DeployApplication(self.driver)
+        self.dp.click_on_pipeline_icon()
+        self.dp.click_on_deploy_button()
+        self.dp.click_on_okay_button()
+        self.dp.wait_to_complete_deployment()
+        self.dp.application_deploy_status_check()
 
     def scrape_all_container_registry_name(self):
         try:
@@ -449,3 +543,42 @@ class Application:
         self.click_on_create_application_button()
         self.wait_to_complete_app_creation()
         self.application_build_status_check()
+
+    def application_create_and_build(self):
+        self.go_to_create_new_application_page()
+        self.choose_webapp_framework()
+        self.input_application_name()
+        self.choose_git_account()
+        self.choose_container_registry()
+        self.set_access_team()
+        self.application_build_trigger_mode()
+        self.click_next_button()
+        self.again_click_next_button()
+        self.Choose_A_Namespace()
+        self.choose_enable_persistent_volume_checkbox()
+        self.choose_enable_in_memory_volume_non_persistent_checkbox()
+        self.choose_enable_auto_scaling_checkbox()
+        self.choose_enable_basic_auth_for_external_access_url_checkbox()
+        self.click_on_save_button()
+        self.click_on_create_application_button()
+        self.build_application_pipeline()
+
+    def application_create_build_deploy(self):
+        self.go_to_create_new_application_page()
+        self.choose_webapp_framework()
+        self.input_application_name()
+        self.choose_git_account()
+        self.choose_container_registry()
+        self.set_access_team()
+        self.application_build_trigger_mode()
+        self.click_next_button()
+        self.again_click_next_button()
+        self.Choose_A_Namespace()
+        self.choose_enable_persistent_volume_checkbox()
+        self.choose_enable_in_memory_volume_non_persistent_checkbox()
+        self.choose_enable_auto_scaling_checkbox()
+        self.choose_enable_basic_auth_for_external_access_url_checkbox()
+        self.click_on_save_button()
+        self.click_on_create_application_button()
+        self.build_application_pipeline()
+        self.application_deployment()

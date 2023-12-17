@@ -119,7 +119,6 @@ class Locator(object):
     # ****************************************From sidebar***********************************
     Applications = "//span[contains(text(),'Applications')]"
     find_Application_tolist = "//span[contains(text(),'101')]"
-
     # *******************************To deploy application*************************************
     # Deployment is now in pending. It will take a moment to start = "//span[contains(text(),'Deployment is now in pending. It will take a momen')]"
     # Now we are deploying your application. Please wait for a while. It may take upto 3 minutes = "//span[contains(text(),'Now we are deploying your application. Please wait')]"
@@ -128,6 +127,7 @@ class Locator(object):
     To_deploy = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/*[name()='svg'][1]"
     icon_application_build_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-details/div/div/kc-ci-cd-pipeline/div[1]/div/div[2]/div/div[1]/ul/li"
     button_application_build_info_xpath = "//span[contains(text(),'Info')]"
+    button_build_application_pipeline_xpath = "(//span[contains(text(), 'Build')])[3]"
     Deploy_button = "//span[normalize-space()='Deploy']"
     Okay_button = "//span[contains(text(),'Okay')]"
     Deployment_Pending_msg = "//span[contains(text(),'Deployment is now in pending. It will take a momen')]"
@@ -153,6 +153,12 @@ class Locator(object):
     #  for failed app
     Application_Initialization_failed = "//h5[contains(text(),'*** Application Initialization Failed ***')]"
     checkbox_application_build_trigger_mode_manual_xpath = "//div[@class='mat-radio-label-content' and contains(text(), 'Manual')]"
+    # -------------------------------- affinity config----------------------------------------------------------
+    button_affinity_config_application_xpath = "//span[normalize-space()='Affinity Config']"
+    add_affinity_icon_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-details/div/div/kc-application-affinity-list/div/div/div/a"
+    textbox_affinity_config_name_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-details/div/div/kc-affinity-form/div/form/div[1]/div/mat-form-field/div/div[1]/div[3]/input"
+    Checkbox_Add_Required_Scheduler_Config_NodeAffinity_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-details/div/div/kc-affinity-form/div/form/div[1]/section[1]/div[2]/div[1]/div/mat-checkbox/label/div"
+
     # ******************************** Delete Cache *****************************************
 
     Cache_S = "(//span[@class='item-label'][normalize-space()='Cache'])[1]"
@@ -210,7 +216,7 @@ class Locator(object):
     deploy_button_xpath = "//span[normalize-space()='Deploy']"
     restart_button_xpath = "//span[normalize-space()='Restart']"
     okay_button_xpath = "//span[contains(text(),'Okay')]"
-    wait_to_complete_deploy_xpath = "//body/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[2]/ul[1]/li[1]/div[1]/button[1]/span[1]/mat-icon[1]/*[1]"
+    wait_to_complete_deploy_xpath = "//div[@class='pipeline-live-log-job-item-container cursor-pointer focused']//button[@type='button']//mat-icon[@role='img']//*[name()='svg']"
 
     # *******************************user section*************************************
     create_user_icon_xpath = "//button[@class='ml-4 mat-focus-indicator mat-mini-fab mat-button-base mat-primary']"
