@@ -1,7 +1,7 @@
 import time
 import logging
 
-from pageObjects.application.pom_delete_application import DeleteApplication
+from pageObjects.application.pom_terminate_application import TerminateApplication
 from utilities.readProperties import ReadConfig
 import utilities.customLogger as cl
 
@@ -14,9 +14,9 @@ class Test_Create_Namespace:
     # logger object
     logger = cl.LogGen.customLogger(logging.DEBUG)
 
-    def test_application_deletion_from_list(self, setup_chrome_with_sessions):
+    def test_terminate_application(self, setup_chrome_with_sessions):
         # self.driver = setup  # to run incognito mode
         self.driver = setup_chrome_with_sessions  # to run with session
-        self.ob = DeleteApplication(self.driver)
+        self.ob = TerminateApplication(self.driver)
         self.ob.logIn()  # login
-        self.ob.delete_application_from_list()
+        self.ob.test_terminate_application()

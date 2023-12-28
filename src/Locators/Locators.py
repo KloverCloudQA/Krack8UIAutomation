@@ -141,7 +141,8 @@ class Locator(object):
     Deployed_status = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-details/div/div/kc-ci-cd-pipeline/div[5]/div[2]/div[1]/div/p[2]"
 
     deployed_validation = "/html[1]/body[1]/kc-root[1]/kc-layout[1]/div[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/main[1]/kc-application-details[1]/div[1]/div[1]/kc-ci-cd-pipeline[1]/div[3]/ul[1]/li[1]/div[1]/button[1]/span[1]/mat-icon[1]/*[name()='svg'][1]"
-
+    button_redeploy_application_xpath = "//span[normalize-space()='Redeploy']"
+    button_terminate_application_xpath = "//span[normalize-space()='Terminate']"
     # ********************************************** delete Application ********************************
     application_Settings_xpath = "(//span[contains(@class,'inline-block py-4 px-4')][normalize-space()='Settings'])[1]"
     application_Delete_button_xpath = "//span[contains(text(),'Delete')]"
@@ -330,3 +331,32 @@ class Locator(object):
     button_next_cache_xpath = "//span[normalize-space()='Next']"
     button_confirm_cache_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-cache-form/div/div/kc-horizontal-stepper/section/div[2]/form/div[2]/button[1]/span/div/span"
     button_cache_status_xpath = "//span[contains(@class, 'status')]"
+
+    # on-board application tion----------------------------------
+    button_onboard_existing_app_xpath = "//span[normalize-space()='On-Board Existing App']"
+    dropdown_git_account_list_onboard_app_xpath = "/html/body/div[3]/div[2]/div/mat-dialog-container/kc-choose-existing-app/mat-dialog-content/div/div/mat-form-field/div/div[1]/div[3]"
+    git_repository_name_onboard_app_xpath = "//span[contains(text(),'bitbucket-natasha')]"
+    button_personal_repository_onboard_app_xpath = "//h3[normalize-space()='Personal Repository']"
+    button_organizations_onboard_app_xpath = "//h3[normalize-space()='Organizations']"
+    searchbar_repository_name_onboard_app_xpath = "//input[@placeholder='Search repository name']"
+    button_branch_name_onboard_app_xpath = "//h3[normalize-space()='master']"
+    dropdown_language_type_onboard_app_xpath = "//div[@class='mat-form-field-flex']//mat-select[@formcontrolname='languageType']"
+    dropdown_application_type_onboard_app_xpath = "//div[@class='mat-form-field-flex']//mat-select[@formcontrolname='applicationType']"
+    button_next_onboard_app_xpath = "//span[normalize-space()='Next']"
+
+    java_language_type_onboard_xpath = "//img[@class='mr-2' and @height='20px' and @src='assets/img/icons/ico-application-java.svg' and @width='20px']"
+    python_language_type_onboard_xpath = "//img[@class='mr-2' and @height='20px' and @src='assets/img/icons/ico-application-python.svg' and @width='20px']"
+    php_language_type_onboard_xpath = "//img[@class='mr-2' and @height='20px' and @src='assets/img/icons/ico-application-php.svg' and @width='20px']"
+    csharp_language_type_onboard_xpath = "//img[@class='mr-2' and @height='20px' and @src='assets/img/icons/ico-application-csharp.svg' and @width='20px']"
+    javascript_language_type_onboard_xpath = "//img[@class='mr-2' and @height='20px' and @src='assets/img/icons/ico-application-javascript.svg' and @width='20px']"
+    golang_language_type_onboard_xpath = "//img[@class='mr-2' and @height='20px' and @src='assets/img/icons/ico-application-golang.svg' and @width='20px']"
+    others_language_type_onboard_xpath = "//img[@class='mr-2' and @alt='' and @height='20px' and @src='assets/img/icons/ic-application-others.svg' and @width='20px']"
+
+    django_application_type_onboard_xpath = "//img[@class='mr-2' and @alt='' and @height='20px' and contains(@src, 'ic_django') and @width='20px']"
+    spring_boot_application_type_onboard_xpath = "//img[@class='mr-2' and @alt='' and @height='20px' and contains(@src, 'ico-spring-boot') and @width='20px']"
+    expressjs_application_type_onboard_xpath = "<img _ngcontent-fqh-c30="" class='mr-2' alt="" height='20px' src='assets/img/icons/ic_expressjs.png' width='20px' xpath='1'>"
+    dot_net_application_type_onboard_xpath = "//img[@class='mr-2' and @alt='' and @height='20px' and contains(@src, 'ic_dot_net') and @width='20px']"
+    laravel_application_type_onboard_xpath = "//img[@class='mr-2' and @alt='' and @height='20px' and contains(@src, 'ic_laravel') and @width='20px']"
+    golang_application_type_onboard_xpath =  "//img[@class='mr-2' and @height='20px' and contains(@src, 'ico-application-golang') and @width='20px']"
+    others_application_type_onboard_xpath = "//img[@class='mr-2' and @alt='' and @height='20px' and contains(@src, 'ic-application-others') and @width='20px']"
+    textbox_application_port_xpath = "/html/body/kc-root/kc-layout/div/mat-sidenav-container/mat-sidenav-content/main/kc-application-form/div/div/kc-horizontal-stepper/section/div[2]/div[2]/div[1]/mat-form-field[4]/div/div[1]/div[3]/input"

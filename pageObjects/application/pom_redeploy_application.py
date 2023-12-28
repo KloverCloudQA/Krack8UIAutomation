@@ -10,7 +10,7 @@ from src.Locators.Locators import Locator
 from pageObjects.auth.pom_LoginPage import LoginPage
 
 
-class DeployApplication:
+class RedeployApplication:
     baseURL = ReadConfig.getApplicationURL()
     username = ReadConfig.getUsername()
     password = ReadConfig.getPassword()
@@ -29,7 +29,7 @@ class DeployApplication:
         self.lp = LoginPage(self.driver)
         self.lp.logIn()
 
-    # -----------------------------------------Deploy Application---------------------------------------------------
+    # -----------------------------------------Restart Application---------------------------------------------------
 
     def go_application_pipeline_page(self):
         try:
@@ -58,11 +58,11 @@ class DeployApplication:
             self.logger.error("An unexpected exception occurred: {}".format(e))
             # Handle other exceptions
 
-    def click_on_deploy_button(self):
+    def click_on_redeploy_button(self):
         try:
-            self.driver.find_element(By.XPATH, Locator.deploy_button_xpath).click()
+            self.driver.find_element(By.XPATH, Locator.button_redeploy_application_xpath).click()
             time.sleep(2)
-            self.logger.info("clicked on svg icon")
+            self.logger.info("clicked on redeploy")
         except NoSuchElementException as e:
             self.logger.info("NoSuchElementException error", e)
         except Exception as e:
@@ -80,8 +80,8 @@ class DeployApplication:
             self.logger.error("An unexpected exception occurred: {}".format(e))
             # Handle other exceptions
 
-    def wait_to_complete_deployment(self):
-        self.logger.info("waiting to complete deployment")
+    def wait_to_complete_redeploy(self):
+        self.logger.info("waiting to complete redeploy")
 
         try:
             wait_to_complete_deploy_xpath = WebDriverWait(self.driver, 800).until(
@@ -89,25 +89,22 @@ class DeployApplication:
             if wait_to_complete_deploy_xpath.is_displayed():
                 time.sleep(4)
                 pass
-                self.logger.info("The application deployment process is complete")
+                self.logger.info("The application redeploy process is complete")
             else:
                 pass
-            self.logger.info("cross button is not found")
+                self.logger.info("cross button is not found")
         except NoSuchElementException as e:
-            self.logger.error("NoSuchElementException error", e)
+            print("NoSuchElementException error", e)
         except TimeoutException as e:
-            self.logger.error("TimeoutException error", e)
+            print("TimeoutException error", e)
         except InvalidSessionIdException as e:
-            self.logger.error("InvalidSessionIdException error", e)
-        except Exception as e:
-            self.logger.error("An unexpected exception occurred: {}".format(e))
+            print("InvalidSessionIdException error", e)
+        self.logger.info("complete the restarting process")
 
-        self.logger.info("complete the deployment process")
-
-    def application_deploy_status_check(self):
+    def application_restarting_status_check(self):
         try:
             self.driver.find_element(By.XPATH, Locator.deploy_icon_xpath).click()
-            self.logger.info("clicked on application deploy icon")
+            self.logger.info("clicked on application restart icon")
             time.sleep(1)
             self.driver.find_element(By.XPATH, Locator.button_application_build_info_xpath).click()
             self.logger.info("clicked info button")
@@ -120,14 +117,14 @@ class DeployApplication:
 
                 if status_text == "None":
                     print("Status is None.")
-                    self.logger.info("deployment Status is None")
+                    self.logger.info("redeploy Status is None")
                 elif status_text == "Success":
-                    self.logger.info("deployment Status is None")
+                    self.logger.info("redeploy Status is None")
                 elif status_text == "Timeout":
-                    self.logger.info("deployment Status is Timeout")
+                    self.logger.info("redeploy Status is Timeout")
                 else:
                     print(f"Unknown status: {status_text}")
-                    self.logger.info(f"Build Status is : {status_text}")
+                    self.logger.info(f"restart Status is : {status_text}")
 
             except Exception as e:
                 self.logger.error(f"Error: {e}")
@@ -143,10 +140,10 @@ class DeployApplication:
             self.logger.error("An unexpected exception occurred: {}".format(e))
             # Handle other exceptions
 
-    def test_application_deployment_by_id(self):
+    def test_redeploy_application(self):
         self.go_application_pipeline_page()
         self.click_on_pipeline_icon()
-        self.click_on_deploy_button()
+        self.click_on_redeploy_button()
         self.click_on_okay_button()
-        self.wait_to_complete_deployment()
-        self.application_deploy_status_check()
+        self.wait_to_complete_redeploy()
+        self.application_restarting_status_check()

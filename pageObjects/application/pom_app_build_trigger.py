@@ -38,7 +38,6 @@ class Application:
     textbox_basic_auth_username = Locator.textbox_basic_auth_username_application_xpath
     textbox_basic_auth_password = Locator.textbox_basic_auth_password_application_xpath
 
-
     # web_framework_name = input("Enter the web framework name: ")
     application_name = input("Enter the application name: ")
     git_account = input("Enter git account name: ")
@@ -192,7 +191,8 @@ class Application:
             self.driver.find_element(By.XPATH, self.checkbox_Enable_In_Memory_Volume_Non_Persistent).click()
             self.logger.info("Enable In-Memory Volume(Non-Persistent)' chosen")
             mount_paths = input("Now Input your mount paths (/home/kc/cache) : ")
-            self.driver.find_element(By.XPATH, self.textbox_In_Memory_Volume_Mount_Paths_Non_Persistent).send_keys(mount_paths)
+            self.driver.find_element(By.XPATH, self.textbox_In_Memory_Volume_Mount_Paths_Non_Persistent).send_keys(
+                mount_paths)
             time.sleep(1)
             self.logger.info(f"inputted mount path as : {mount_paths}")
 
